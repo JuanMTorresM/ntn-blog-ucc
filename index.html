@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTN en 5G-Advanced y 6G</title>
+  <meta name="description" content="Blog académico-digital sobre Non-Terrestrial Networks con navegación por pestañas, mini-caso técnico, visualización bibliométrica y asistente conversacional local.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+  <div class="bg-grid"></div>
+
+  <header class="hero-shell" id="top">
+    <div class="topbar">
+      <div class="brand-lockup">
+        <span class="brand-chip">BlogDPC</span>
+        <span class="brand-chip brand-chip-soft">Comunicaciones II</span>
+        <span class="brand-chip brand-chip-soft">Reto ABET SO7</span>
+      </div>
+      <div class="topbar-actions">
+        <button class="topbar-btn" type="button" data-open-main-tab="tab-resultados">Resultados</button>
+        <button class="topbar-btn" type="button" data-open-main-tab="tab-palabras">Palabras</button>
+        <button class="topbar-btn" type="button" id="assistant-toggle-top">Asistente</button>
+      </div>
+    </div>
+
+    <div class="hero-grid">
+      <section class="hero-copy card-glass">
+        <p class="eyebrow">Non-Terrestrial Networks · Exploración interactiva</p>
+        <h1 id="site-title"></h1>
+        <p class="hero-subtitle" id="site-subtitle"></p>
+        <p class="declaration" id="declaration"></p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" type="button" data-open-main-tab="tab-inicio">Entrar al dashboard</button>
+          <button class="btn btn-ghost" type="button" data-open-main-tab="tab-clusteres">Ver clústeres</button>
+          <button class="btn btn-ghost" type="button" data-open-lab-tab="lab-mini">Abrir laboratorio</button>
+        </div>
+
+        <div class="hero-metrics" id="hero-metrics"></div>
+      </section>
+
+      <aside class="hero-visual card-glass">
+        <div class="visual-head">
+          <span class="status-dot"></span>
+          <span>Panorama NTN</span>
+        </div>
+        <img class="hero-image" src="assets/illustrations/orbit-hero.svg" alt="Ilustración orbital relacionada con redes no terrestres">
+        <div class="highlight-list" id="hero-highlights"></div>
+      </aside>
+    </div>
+  </header>
+
+  <main id="main-content" class="page-wrap">
+    <section class="section-frame">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Dashboard principal</p>
+          <h2>Exploración por pestañas</h2>
+          <p class="section-copy">Cada panel concentra una parte del proyecto para evitar una navegación plana y convertir el blog en una experiencia más intuitiva.</p>
+        </div>
+        <div class="section-badges">
+          <span class="mini-badge">Bibliometría</span>
+          <span class="mini-badge">Visualización</span>
+          <span class="mini-badge">Laboratorio</span>
+        </div>
+      </div>
+
+      <div class="tab-bar" role="tablist" aria-label="Secciones principales">
+        <button class="tab-btn active" type="button" role="tab" aria-selected="true" aria-controls="tab-inicio" id="btn-tab-inicio" data-tab-target="tab-inicio">Inicio</button>
+        <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-metodologia" id="btn-tab-metodologia" data-tab-target="tab-metodologia">Metodología</button>
+        <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-resultados" id="btn-tab-resultados" data-tab-target="tab-resultados">Resultados</button>
+        <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-clusteres" id="btn-tab-clusteres" data-tab-target="tab-clusteres">Clústeres</button>
+        <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-palabras" id="btn-tab-palabras" data-tab-target="tab-palabras">Palabras</button>
+        <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="tab-reflexion" id="btn-tab-reflexion" data-tab-target="tab-reflexion">Reflexión</button>
+      </div>
+
+      <div class="tab-panels">
+        <section class="tab-panel active" id="tab-inicio" role="tabpanel" aria-labelledby="btn-tab-inicio">
+          <div class="grid three">
+            <article class="card-glass">
+              <p class="card-kicker">Pregunta guía</p>
+              <h3>Foco del proyecto</h3>
+              <p id="research-question"></p>
+            </article>
+            <article class="card-glass">
+              <p class="card-kicker">Objetivo general</p>
+              <h3>Dirección analítica</h3>
+              <p id="general-objective"></p>
+            </article>
+            <article class="card-glass">
+              <p class="card-kicker">Equipo</p>
+              <h3>Integrantes</h3>
+              <ul class="clean-list" id="team-list"></ul>
+            </article>
+          </div>
+
+          <div class="grid two">
+            <article class="card-glass">
+              <div class="subheader-inline">
+                <div>
+                  <p class="card-kicker">Objetivos específicos</p>
+                  <h3>Ruta de trabajo</h3>
+                </div>
+              </div>
+              <ul class="clean-list" id="specific-objectives"></ul>
+            </article>
+
+            <article class="card-glass">
+              <div class="subheader-inline">
+                <div>
+                  <p class="card-kicker">Glosario</p>
+                  <h3>Conceptos esenciales</h3>
+                </div>
+              </div>
+              <div class="glossary-grid" id="glossary"></div>
+            </article>
+          </div>
+
+          <div class="grid two">
+            <article class="card-glass">
+              <p class="card-kicker">Alcance</p>
+              <h3>Qué cubre este blog</h3>
+              <div class="scope-grid" id="scope-cards"></div>
+            </article>
+
+            <article class="card-glass visual-card">
+              <p class="card-kicker">Vista rápida</p>
+              <h3>Capas de la conversación NTN</h3>
+              <img src="assets/illustrations/stack-layers.svg" alt="Capas temáticas de la discusión NTN">
+            </article>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-metodologia" role="tabpanel" aria-labelledby="btn-tab-metodologia">
+          <div class="grid four compact" id="stats-grid"></div>
+
+          <div class="grid two">
+            <article class="card-glass">
+              <p class="card-kicker">Consulta base</p>
+              <h3>Cadena de búsqueda</h3>
+              <div class="query-box" id="search-query"></div>
+              <p class="card-kicker top-gap">Proceso ejecutado</p>
+              <ol class="ordered-list" id="method-steps"></ol>
+            </article>
+
+            <article class="card-glass">
+              <p class="card-kicker">Normalización</p>
+              <h3>Términos retirados</h3>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr><th>Término</th><th>Frecuencia</th><th>Motivo</th></tr>
+                  </thead>
+                  <tbody id="removed-terms"></tbody>
+                </table>
+              </div>
+            </article>
+          </div>
+
+          <div class="grid two">
+            <article class="card-glass">
+              <p class="card-kicker">Ruta metodológica</p>
+              <h3>Fases del análisis</h3>
+              <div class="workflow-grid" id="workflow-cards"></div>
+            </article>
+
+            <article class="card-glass visual-card">
+              <p class="card-kicker">Integración técnica</p>
+              <h3>Capas de decisión</h3>
+              <img src="assets/illustrations/coverage-arc.svg" alt="Arcos de cobertura NTN y continuidad de servicio">
+            </article>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-resultados" role="tabpanel" aria-labelledby="btn-tab-resultados">
+          <div class="subtab-bar" role="tablist" aria-label="Vistas de resultados">
+            <button class="subtab-btn active" type="button" data-result-target="result-gallery">Galería</button>
+            <button class="subtab-btn" type="button" data-result-target="result-highlights">Lectura rápida</button>
+          </div>
+
+          <div class="result-panel active" id="result-gallery">
+            <div class="gallery-grid" id="results-gallery"></div>
+          </div>
+
+          <div class="result-panel" id="result-highlights">
+            <div class="grid three" id="result-insights"></div>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-clusteres" role="tabpanel" aria-labelledby="btn-tab-clusteres">
+          <div class="grid two">
+            <article class="card-glass">
+              <p class="card-kicker">Balance del mapa</p>
+              <h3>Distribución por clústeres</h3>
+              <img class="content-image" src="assets/charts/cluster_share.png" alt="Distribución por clústeres en el mapa bibliométrico">
+            </article>
+
+            <article class="card-glass">
+              <p class="card-kicker">Interpretación</p>
+              <h3>Lectura del espacio temático</h3>
+              <div class="cluster-card-list" id="cluster-cards"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="tab-panel" id="tab-palabras" role="tabpanel" aria-labelledby="btn-tab-palabras">
+          <div class="grid two">
+            <article class="card-glass">
+              <p class="card-kicker">Explorador</p>
+              <h3>Análisis por palabras</h3>
+              <input class="filter-input" id="analysis-filter" type="search" aria-label="Buscar término o clúster">
+              <div class="chip-row" id="featured-terms"></div>
+            </article>
+
+            <article class="card-glass visual-card">
+              <p class="card-kicker">Imagen focal</p>
+              <h3>Red asociada a NTN</h3>
+              <img src="assets/words/ntn.png" alt="Red bibliométrica asociada al término NTN">
+            </article>
+          </div>
+
+          <div class="accordion-list" id="analysis-list"></div>
+        </section>
+
+        <section class="tab-panel" id="tab-reflexion" role="tabpanel" aria-labelledby="btn-tab-reflexion">
+          <div class="grid two">
+            <article class="card-glass">
+              <p class="card-kicker">Metacognición</p>
+              <h3>Aprendizajes del proceso</h3>
+              <ul class="clean-list" id="reflection-points"></ul>
+            </article>
+
+            <article class="card-glass">
+              <p class="card-kicker">Proyección profesional</p>
+              <h3>Lecciones aplicables</h3>
+              <div class="reflection-grid" id="reflection-lessons"></div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section-frame">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Laboratorio NTN</p>
+          <h2>Mini-caso, video y referencias</h2>
+          <p class="section-copy">Este bloque mantiene el enfoque práctico y documental del proyecto sin romper la experiencia visual del sitio.</p>
+        </div>
+      </div>
+
+      <div class="tab-bar secondary" role="tablist" aria-label="Secciones de laboratorio">
+        <button class="tab-btn active" type="button" data-lab-target="lab-mini">Mini-caso</button>
+        <button class="tab-btn" type="button" data-lab-target="lab-video">Video</button>
+        <button class="tab-btn" type="button" data-lab-target="lab-referencias">Referencias</button>
+      </div>
+
+      <div class="tab-panels">
+        <section class="lab-panel active" id="lab-mini">
+          <div class="grid two">
+            <article class="card-glass">
+              <p class="card-kicker">Caso aplicado</p>
+              <h3 id="mini-title"></h3>
+              <p id="mini-description"></p>
+
+              <div class="grid two nested">
+                <div>
+                  <p class="small-head">Supuestos</p>
+                  <ul class="clean-list" id="mini-assumptions"></ul>
+                </div>
+                <div>
+                  <p class="small-head">Hallazgos</p>
+                  <ul class="clean-list" id="mini-findings"></ul>
+                </div>
+              </div>
+
+              <div class="chart-switcher">
+                <button class="subtab-btn active" type="button" data-mini-chart="margin">Margen</button>
+                <button class="subtab-btn" type="button" data-mini-chart="doppler">Doppler</button>
+              </div>
+              <img class="content-image" id="mini-chart" src="assets/charts/mini_case_margin.png" alt="Gráfico principal del mini-caso técnico">
+            </article>
+
+            <article class="card-glass">
+              <p class="card-kicker">Simulador</p>
+              <h3>Calculadora de enlace</h3>
+              <div class="calc-grid">
+                <label>Frecuencia (GHz)<input id="input-frequency" type="number" step="0.1"></label>
+                <label>Altitud LEO (km)<input id="input-altitude" type="number" step="1"></label>
+                <label>Potencia Tx (dBm)<input id="input-tx" type="number" step="0.1"></label>
+                <label>Ganancia total (dB)<input id="input-gain" type="number" step="0.1"></label>
+                <label>Pérdidas extra (dB)<input id="input-loss" type="number" step="0.1"></label>
+                <label>Umbral requerido (dB)<input id="input-threshold" type="number" step="0.1"></label>
+              </div>
+              <div class="button-row">
+                <button class="btn btn-primary" type="button" id="mini-run">Calcular</button>
+                <button class="btn btn-ghost" type="button" data-preset="iot">Preset IoT</button>
+                <button class="btn btn-ghost" type="button" data-preset="ka">Preset feeder link</button>
+              </div>
+              <div class="result-metric-grid" id="mini-results"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="lab-panel" id="lab-video">
+          <div class="grid two">
+            <article class="card-glass video-block">
+              <p class="card-kicker">Sustentación visual</p>
+              <h3>Microvideo del proyecto</h3>
+              <video class="video-player" controls preload="metadata" poster="assets/video/video_poster.png">
+                <source src="assets/video/ntn_showcase.mp4" type="video/mp4">
+              </video>
+            </article>
+
+            <article class="card-glass">
+              <p class="card-kicker">Estructura audiovisual</p>
+              <h3>Recorrido del video</h3>
+              <div class="timeline-grid">
+                <div class="timeline-item"><strong>01</strong><span>Panorama NTN y propósito del proyecto</span></div>
+                <div class="timeline-item"><strong>02</strong><span>Depuración del conjunto bibliográfico</span></div>
+                <div class="timeline-item"><strong>03</strong><span>Clústeres y términos dominantes</span></div>
+                <div class="timeline-item"><strong>04</strong><span>Mini-caso técnico y lectura de resultados</span></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="lab-panel" id="lab-referencias">
+          <article class="card-glass">
+            <p class="card-kicker">Fuentes consultadas</p>
+            <h3>Referencias en formato IEEE</h3>
+            <ol class="reference-list" id="reference-list"></ol>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <button id="assistant-fab" class="assistant-fab" type="button" aria-controls="assistant-panel" aria-expanded="false">Asistente</button>
+
+  <aside class="assistant-panel" id="assistant-panel" aria-label="Asistente NTN">
+    <div class="assistant-head">
+      <div>
+        <p class="assistant-kicker">Asistente NTN</p>
+        <h2>Exploración conversacional</h2>
+      </div>
+      <div class="assistant-actions">
+        <button class="assistant-icon" type="button" id="assistant-min">—</button>
+        <button class="assistant-icon" type="button" id="assistant-close">×</button>
+      </div>
+    </div>
+    <p class="assistant-copy">Consulta conceptos, metodología, términos, clústeres o resultados del laboratorio.</p>
+    <div class="assistant-prompts" id="assistant-prompts"></div>
+    <div class="assistant-log" id="assistant-log" aria-live="polite"></div>
+    <form class="assistant-form" id="assistant-form">
+      <input id="assistant-input" type="text" aria-label="Escribe una pregunta sobre NTN">
+      <button class="btn btn-primary" type="submit">Enviar</button>
+    </form>
+  </aside>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Volver arriba">↑</button>
+
+  <script src="site-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
