@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NTN BlogDPC</title>
+  <meta name="description" content="Blog académico-digital sobre NTN, 5G-Advanced, 6G y análisis bibliométrico con mini-caso técnico y chatbot local." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <div>
+        <p class="eyebrow">BlogDPC · Comunicaciones II · Reto ABET SO7</p>
+        <h1 id="site-title"></h1>
+        <p class="subtitle" id="site-subtitle"></p>
+        <p class="declaration" id="declaration"></p>
+      </div>
+      <div class="hero-card">
+        <h2>Resumen rápido</h2>
+        <ul id="hero-highlights"></ul>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav" aria-label="Navegación principal">
+    <a href="#inicio">Inicio</a>
+    <a href="#metodologia">Metodología</a>
+    <a href="#resultados">Resultados</a>
+    <a href="#analisis">Análisis por palabra</a>
+    <a href="#mini-caso">Mini-caso</a>
+    <a href="#video">Video</a>
+    <a href="#reflexion">Reflexión</a>
+    <a href="#referencias">Referencias</a>
+  </nav>
+
+  <main id="contenido" class="container">
+    <section id="inicio" class="panel">
+      <div class="section-head">
+        <h2>1. Presentación del proyecto</h2>
+        <p>Autores, problema de investigación, pregunta guía y alcance de la revisión.</p>
+      </div>
+      <div class="two-col">
+        <article>
+          <h3>Integrantes</h3>
+          <ul class="team-list" id="team-list"></ul>
+          <h3>Pregunta guía</h3>
+          <p id="research-question"></p>
+          <h3>Objetivo general</h3>
+          <p id="general-objective"></p>
+        </article>
+        <article>
+          <h3>Objetivos específicos</h3>
+          <ul id="specific-objectives"></ul>
+          <h3>Glosario rápido</h3>
+          <div class="glossary" id="glossary"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="metodologia" class="panel">
+      <div class="section-head">
+        <h2>2. Metodología y plan de aprendizaje</h2>
+        <p>Se resume la estrategia de búsqueda, la depuración y la transferencia al mini-caso técnico.</p>
+      </div>
+      <div class="stats-grid" id="kpi-grid"></div>
+      <div class="two-col">
+        <article>
+          <h3>Cadena de búsqueda</h3>
+          <div class="code-block" id="search-query"></div>
+          <h3>Pasos ejecutados</h3>
+          <ol id="method-steps"></ol>
+        </article>
+        <article>
+          <h3>Términos eliminados (muestra)</h3>
+          <table>
+            <thead><tr><th>Término eliminado</th><th>Frecuencia eliminada</th><th>Motivo</th></tr></thead>
+            <tbody id="removed-terms"></tbody>
+          </table>
+        </article>
+      </div>
+      <div class="note">
+        <strong>Nota metodológica:</strong> las cifras del blog se generaron automáticamente a partir del CSV de Scopus cargado en esta conversación. Si luego exportan el mapa exacto desde VOSviewer, pueden reemplazar estas imágenes sin tocar la estructura del sitio.
+      </div>
+    </section>
+
+    <section id="resultados" class="panel">
+      <div class="section-head">
+        <h2>3. Resultados bibliométricos</h2>
+        <p>Mapa de co-ocurrencias, términos frecuentes, evolución temporal y síntesis por clúster.</p>
+      </div>
+      <div class="chart-grid">
+        <figure class="chart-card">
+          <img src="assets/charts/network_overview.png" alt="Mapa bibliométrico aproximado de co-ocurrencias NTN" />
+          <figcaption>Mapa completo aproximado de co-ocurrencias para términos con frecuencia igual o superior a 12.</figcaption>
+        </figure>
+        <figure class="chart-card">
+          <img src="assets/charts/top_terms.png" alt="Gráfico de términos más frecuentes" />
+          <figcaption>Términos más frecuentes tras el proceso de depuración semiautomático y manual.</figcaption>
+        </figure>
+        <figure class="chart-card full-span">
+          <img src="assets/charts/year_trend.png" alt="Tendencia anual de publicaciones NTN" />
+          <figcaption>Crecimiento de la producción científica NTN entre 2016 y 2025.</figcaption>
+        </figure>
+      </div>
+      <div class="cluster-grid" id="cluster-grid"></div>
+    </section>
+
+    <section id="analisis" class="panel">
+      <div class="section-head">
+        <h2>4. Análisis narrativo por palabra escogida</h2>
+        <p>Se presentan 20 análisis, cada uno con 10 enlaces ordenados por fuerza de asociación y una conclusión interpretativa.</p>
+      </div>
+      <div class="analysis-search">
+        <label for="analysis-filter">Filtrar palabra:</label>
+        <input id="analysis-filter" type="search" placeholder="Ej. NTN, beamforming, feeder link..." />
+      </div>
+      <div id="analysis-list" class="analysis-list"></div>
+    </section>
+
+    <section id="mini-caso" class="panel">
+      <div class="section-head">
+        <h2>5. Mini-caso técnico: link budget simplificado con Doppler para un enlace LEO</h2>
+        <p>Comparación exploratoria de un perfil S-band IoT y un perfil Ka-band feeder, con una calculadora interactiva para el blog.</p>
+      </div>
+      <div class="two-col">
+        <article>
+          <h3>Objetivo aplicado</h3>
+          <p id="mini-objective"></p>
+          <h3>Hipótesis</h3>
+          <p id="mini-hypothesis"></p>
+          <h3>Supuestos</h3>
+          <ul id="mini-assumptions"></ul>
+          <h3>Hallazgos clave</h3>
+          <ul id="mini-findings"></ul>
+        </article>
+        <article>
+          <h3>Calculadora rápida</h3>
+          <form class="calculator" id="calc-form">
+            <label>Frecuencia (GHz)<input type="number" step="0.1" id="calc-freq" value="2" /></label>
+            <label>Altitud LEO (km)<input type="number" step="10" id="calc-alt" value="600" /></label>
+            <label>Elevación (grados)<input type="number" step="1" id="calc-elev" value="45" /></label>
+            <label>EIRP (dBm)<input type="number" step="1" id="calc-eirp" value="43" /></label>
+            <label>Ganancia Rx (dBi)<input type="number" step="1" id="calc-grx" value="15" /></label>
+            <label>Pérdidas adicionales (dB)<input type="number" step="0.5" id="calc-loss" value="3" /></label>
+            <label>Ancho de banda (MHz)<input type="number" step="0.1" id="calc-bw" value="1" /></label>
+            <label>Noise Figure (dB)<input type="number" step="0.1" id="calc-nf" value="3" /></label>
+            <button type="submit">Calcular</button>
+          </form>
+          <div class="calc-output" id="calc-output"></div>
+        </article>
+      </div>
+      <div class="chart-grid">
+        <figure class="chart-card">
+          <img src="assets/charts/mini_case_margin.png" alt="Margen de enlace vs elevación" />
+          <figcaption>El margen de enlace mejora al aumentar la elevación y empeora a altas frecuencias si no se compensa con ganancia.</figcaption>
+        </figure>
+        <figure class="chart-card">
+          <img src="assets/charts/mini_case_doppler.png" alt="Doppler vs elevación" />
+          <figcaption>El Doppler es especialmente exigente en Ka-band y requiere compensación predictiva en escenarios LEO.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="video" class="panel">
+      <div class="section-head">
+        <h2>6. Video de sustentación</h2>
+        <p>Reemplaza el ID de YouTube en el archivo <code>site-data.js</code> cuando tengan la sustentación grabada.</p>
+      </div>
+      <div id="video-wrapper" class="video-wrapper"></div>
+    </section>
+
+    <section id="reflexion" class="panel">
+      <div class="section-head">
+        <h2>7. Reflexión, ética y aprendizaje continuo</h2>
+        <p>Bitácora abreviada del proceso y lecciones para la práctica profesional.</p>
+      </div>
+      <div class="two-col">
+        <article>
+          <h3>Reflexiones metacognitivas</h3>
+          <ul id="reflection-list"></ul>
+        </article>
+        <article>
+          <h3>Retroalimentación</h3>
+          <p>Esta sección deja una evidencia simple de comentarios locales. Si luego quieren comentarios públicos, pueden enlazar un Google Form o GitHub Discussions.</p>
+          <form id="feedback-form" class="feedback-form">
+            <label>Nombre<input id="feedback-name" type="text" placeholder="Tu nombre" /></label>
+            <label>Comentario<textarea id="feedback-text" rows="4" placeholder="Escribe una observación académica o sugerencia"></textarea></label>
+            <button type="submit">Guardar comentario local</button>
+          </form>
+          <div id="feedback-list" class="feedback-list"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="referencias" class="panel">
+      <div class="section-head">
+        <h2>8. Fuentes consultadas</h2>
+        <p>Referencias académicas en formato IEEE y enlaces para descarga de recursos del proyecto.</p>
+      </div>
+      <ol id="reference-list" class="reference-list"></ol>
+      <div class="download-box">
+        <h3>Descargas del proyecto</h3>
+        <ul>
+          <li><a href="mini_caso_ntn.py">Script del mini-caso NTN</a></li>
+          <li><a href="build_ntn_blog.py">Script generador del sitio</a></li>
+          <li><a href="README_PUBLICACION.md">Guía de publicación</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div class="share-bar">
+    <span>Compartir:</span>
+    <button data-share="linkedin">LinkedIn</button>
+    <button data-share="x">X</button>
+    <button data-share="whatsapp">WhatsApp</button>
+  </div>
+
+  <aside class="chatbot" id="chatbot" aria-label="Asistente conversacional del blog">
+    <button class="chatbot-toggle" id="chatbot-toggle">IA del blog</button>
+    <div class="chatbot-panel" id="chatbot-panel" hidden>
+      <div class="chatbot-header">
+        <strong>Asistente NTN</strong>
+        <p>Responde solo con información del blog. No usa API externa.</p>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages"></div>
+      <form id="chatbot-form" class="chatbot-form">
+        <input id="chatbot-input" type="text" placeholder="Pregunta algo sobre NTN, 5G, LEO, mini-caso..." />
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </aside>
+
+  <footer class="site-footer">
+    <p>Blog generado a partir del CSV cargado en la conversación. Diseñado para despliegue gratuito en GitHub Pages o en WordPress con soporte de código personalizado.</p>
+    <a href="#top">Volver arriba</a>
+  </footer>
+
+  <script src="site-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
