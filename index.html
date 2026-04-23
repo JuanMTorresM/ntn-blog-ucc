@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Non-Terrestrial Networks (NTN) — Análisis Bibliométrico</title>
+  <meta name="description" content="Blog académico-digital sobre Non-Terrestrial Networks: análisis bibliométrico, tendencias, clusters y exploración técnica.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Particle Canvas Background -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="main-nav" id="main-nav">
+    <div class="nav-brand">
+      <div class="nav-logo">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1.5"/>
+          <ellipse cx="20" cy="20" rx="18" ry="6" stroke="currentColor" stroke-width="1" opacity="0.4" transform="rotate(30 20 20)"/>
+          <ellipse cx="20" cy="20" rx="18" ry="6" stroke="currentColor" stroke-width="1" opacity="0.4" transform="rotate(-30 20 20)"/>
+          <circle cx="20" cy="3" r="2" fill="currentColor"/>
+          <circle cx="35" cy="28" r="1.5" fill="currentColor" opacity="0.6"/>
+          <circle cx="5" cy="28" r="1.5" fill="currentColor" opacity="0.6"/>
+        </svg>
+      </div>
+      <span class="nav-title">NTN Research</span>
+    </div>
+    <div class="nav-tabs" id="nav-tabs">
+      <button class="nav-tab active" data-tab="inicio">Inicio</button>
+      <button class="nav-tab" data-tab="metodologia">Metodología</button>
+      <button class="nav-tab" data-tab="resultados">Resultados</button>
+      <button class="nav-tab" data-tab="clusters">Clústeres</button>
+      <button class="nav-tab" data-tab="palabras">Palabras</button>
+      <button class="nav-tab" data-tab="reflexion">Reflexión</button>
+    </div>
+    <button class="nav-mobile-toggle" id="nav-mobile-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="nav-tab active" data-tab="inicio">Inicio</button>
+    <button class="nav-tab" data-tab="metodologia">Metodología</button>
+    <button class="nav-tab" data-tab="resultados">Resultados</button>
+    <button class="nav-tab" data-tab="clusters">Clústeres</button>
+    <button class="nav-tab" data-tab="palabras">Palabras</button>
+    <button class="nav-tab" data-tab="reflexion">Reflexión</button>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="assets/hero-satellites.jpg" alt="Constelación de satélites NTN" loading="eager">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Divulgación Pública de la Ciencia</span>
+      </div>
+      <h1 class="hero-title">Non-Terrestrial<br>Networks <span class="text-gradient">(NTN)</span></h1>
+      <p class="hero-subtitle">Análisis Bibliométrico del Estado del Arte en Comunicaciones 5G/6G</p>
+      <p class="hero-declaration" id="hero-declaration"></p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="scrollToSection('resultados')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Explorar Resultados
+        </button>
+        <button class="btn btn-secondary" onclick="scrollToSection('clusters')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4m-8-8h4m12 0h4"/></svg>
+          Ver Clústeres
+        </button>
+        <button class="btn btn-ghost" onclick="toggleChatbot()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Asistente NTN
+        </button>
+      </div>
+      <div class="hero-team" id="hero-team"></div>
+    </div>
+    <div class="hero-stats" id="hero-stats"></div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+
+    <!-- TAB: INICIO -->
+    <div class="tab-panel active" id="tab-inicio">
+      <!-- Executive Summary -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-tag">Resumen Ejecutivo</div>
+          <h2 class="section-title">Estado del Arte de las NTN</h2>
+          <p class="section-desc">Síntesis de los hallazgos principales del análisis bibliométrico sobre redes no terrestres.</p>
+        </div>
+        <div class="glass-card executive-summary">
+          <div class="exec-grid">
+            <div class="exec-visual">
+              <img src="assets/network-coverage.jpg" alt="Cobertura de red NTN" loading="lazy">
+            </div>
+            <div class="exec-content">
+              <h3>¿Qué son las Non-Terrestrial Networks?</h3>
+              <p>Las <strong>Non-Terrestrial Networks (NTN)</strong> representan la nueva frontera de las telecomunicaciones globales, integrando plataformas espaciales —satélites en órbita LEO, MEO y GEO— con estaciones terrestres para extender la cobertura 5G y 6G a cualquier punto del planeta.</p>
+              <p>El análisis de <strong>1,247 documentos científicos</strong> publicados entre 2019 y 2025 revela un campo en expansión acelerada, con un crecimiento anual del <strong>34.2%</strong> impulsado por la estandarización 3GPP y el despliegue comercial de constelaciones como Starlink, OneWeb y Kuiper.</p>
+              <div class="exec-highlights">
+                <div class="exec-highlight">
+                  <span class="exec-number">67</span>
+                  <span class="exec-label">Países productores</span>
+                </div>
+                <div class="exec-highlight">
+                  <span class="exec-number">2,893</span>
+                  <span class="exec-label">Autores activos</span>
+                </div>
+                <div class="exec-highlight">
+                  <span class="exec-number">h-42</span>
+                  <span class="exec-label">Índice H</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Access Cards -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-tag">Exploración Rápida</div>
+          <h2 class="section-title">Acceso a Componentes</h2>
+        </div>
+        <div class="quick-cards">
+          <div class="quick-card" onclick="scrollToSection('tab-metodologia')">
+            <div class="quick-icon" style="--icon-color: #00d4ff;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <h4>Metodología</h4>
+            <p>Estrategia de búsqueda, criterios de selección y pasos del análisis bibliométrico.</p>
+          </div>
+          <div class="quick-card" onclick="scrollToSection('tab-resultados')">
+            <div class="quick-icon" style="--icon-color: #ff6b35;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <h4>Resultados</h4>
+            <p>Mapa bibliométrico, tendencias temporales y distribución geográfica.</p>
+          </div>
+          <div class="quick-card" onclick="scrollToSection('tab-clusters')">
+            <div class="quick-icon" style="--icon-color: #7c3aed;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="3"/><circle cx="6" cy="19" r="3"/><circle cx="18" cy="19" r="3"/><line x1="6" y1="8" x2="6" y2="16"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="18" y1="8" x2="18" y2="16"/></svg>
+            </div>
+            <h4>Clústeres</h4>
+            <p>6 agrupaciones temáticas identificadas con términos y oportunidades.</p>
+          </div>
+          <div class="quick-card" onclick="scrollToSection('tab-palabras')">
+            <div class="quick-icon" style="--icon-color: #10b981;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <h4>Palabras Clave</h4>
+            <p>10 términos principales con análisis individual y enlaces IEEE.</p>
+          </div>
+          <div class="quick-card" onclick="scrollToSection('minicaso-section')">
+            <div class="quick-icon" style="--icon-color: #f59e0b;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h4>Mini-Caso Técnico</h4>
+            <p>Calculadora interactiva de link budget y análisis Doppler para escenarios LEO.</p>
+          </div>
+          <div class="quick-card" onclick="toggleChatbot()">
+            <div class="quick-icon" style="--icon-color: #ec4899;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg>
+            </div>
+            <h4>Asistente NTN</h4>
+            <p>Chatbot local con respuestas sobre el contenido académico del sitio.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research Overview -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-tag">Investigación</div>
+          <h2 class="section-title">Marco del Proyecto</h2>
+        </div>
+        <div class="research-grid">
+          <div class="glass-card research-question">
+            <div class="card-tag">Pregunta de Investigación</div>
+            <p id="research-question"></p>
+          </div>
+          <div class="glass-card research-objective">
+            <div class="card-tag">Objetivo General</div>
+            <p id="research-objective"></p>
+          </div>
+        </div>
+        <div class="glass-card objectives-list">
+          <div class="card-tag">Objetivos Específicos</div>
+          <ol id="objectives-list"></ol>
+        </div>
+      </section>
+
+      <!-- Glossary -->
+      <section class="section">
+        <div class="section-header">
+          <div class="section-tag">Referencia</div>
+          <h2 class="section-title">Glosario Técnico</h2>
+        </div>
+        <div class="glossary-grid" id="glossary-grid"></div>
+      </section>
+
+      <!-- Mini-Case Section -->
+      <section class="section" id="minicaso-section">
+        <div class="section-header">
+          <div class="section-tag">Herramienta Interactiva</div>
+          <h2 class="section-title">Mini-Caso Técnico: Escenario LEO</h2>
+          <p class="section-desc">Calcula el presupuesto de enlace y el efecto Doppler para un escenario de comunicación satelital LEO.</p>
+        </div>
+        <div class="glass-card minicase-card">
+          <div class="minicase-visual">
+            <img src="assets/leo-communication.jpg" alt="Comunicación LEO" loading="lazy">
+          </div>
+          <div class="minicase-controls">
+            <div class="input-group">
+              <label>Altitud orbital <span class="unit">km</span></label>
+              <input type="range" id="mc-altura" min="300" max="2000" value="550" oninput="updateMiniCase()">
+              <span class="input-value" id="mc-altura-val">550 km</span>
+            </div>
+            <div class="input-group">
+              <label>Frecuencia portadora <span class="unit">GHz</span></label>
+              <input type="range" id="mc-frecuencia" min="0.7" max="30" step="0.1" value="2.0" oninput="updateMiniCase()">
+              <span class="input-value" id="mc-frecuencia-val">2.0 GHz</span>
+            </div>
+            <div class="input-group">
+              <label>Potencia TX <span class="unit">dBm</span></label>
+              <input type="range" id="mc-potencia" min="10" max="60" value="30" oninput="updateMiniCase()">
+              <span class="input-value" id="mc-potencia-val">30 dBm</span>
+            </div>
+            <div class="input-group">
+              <label>Ganancia antena TX <span class="unit">dBi</span></label>
+              <input type="range" id="mc-gtx" min="0" max="40" value="25" oninput="updateMiniCase()">
+              <span class="input-value" id="mc-gtx-val">25 dBi</span>
+            </div>
+            <div class="input-group">
+              <label>Ganancia antena RX <span class="unit">dBi</span></label>
+              <input type="range" id="mc-grx" min="0" max="40" value="20" oninput="updateMiniCase()">
+              <span class="input-value" id="mc-grx-val">20 dBi</span>
+            </div>
+            <div class="input-group">
+              <label>Ángulo de elevación <span class="unit">°</span></label>
+              <input type="range" id="mc-angulo" min="10" max="90" value="30" oninput="updateMiniCase()">
+              <span class="input-value" id="mc-angulo-val">30°</span>
+            </div>
+          </div>
+          <div class="minicase-results">
+            <h4>Resultados del Enlace</h4>
+            <div class="result-item">
+              <span class="result-label">Distancia al satélite</span>
+              <span class="result-value" id="res-distancia">--</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Pérdida espacio libre</span>
+              <span class="result-value" id="res-pathloss">--</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Desplazamiento Doppler máx.</span>
+              <span class="result-value" id="res-doppler">--</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Potencia recibida (Prx)</span>
+              <span class="result-value" id="res-prx">--</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">SNR estimado</span>
+              <span class="result-value" id="res-snr">--</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Tasa de datos estimada</span>
+              <span class="result-value" id="res-datarate">--</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Video Section -->
+      <section class="section" id="video-section">
+        <div class="section-header">
+          <div class="section-tag">Sustentación</div>
+          <h2 class="section-title">Video de Sustentación</h2>
+        </div>
+        <div class="glass-card video-card">
+          <div class="video-placeholder">
+            <img src="assets/ntn-architecture.jpg" alt="Arquitectura NTN" loading="lazy">
+            <div class="video-overlay">
+              <div class="video-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+              <h3>Sustentación del Proyecto NTN</h3>
+              <p id="video-message"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- References -->
+      <section class="section" id="references-section">
+        <div class="section-header">
+          <div class="section-tag">Fuentes</div>
+          <h2 class="section-title">Referencias IEEE</h2>
+        </div>
+        <div class="glass-card references-card">
+          <ol class="references-list" id="references-list"></ol>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB: METODOLOGIA -->
+    <div class="tab-panel" id="tab-metodologia">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-tag">Enfoque</div>
+          <h2 class="section-title">Metodología del Análisis Bibliométrico</h2>
+          <p class="section-desc">Proceso sistemático de recolección, filtrado y análisis de la literatura científica sobre NTN.</p>
+        </div>
+
+        <div class="method-intro">
+          <div class="glass-card method-search">
+            <h3>Cadena de Búsqueda</h3>
+            <div class="code-block" id="cadena-busqueda"></div>
+            <div class="method-databases">
+              <span class="method-label">Bases de datos:</span>
+              <div class="db-tags" id="db-tags"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="criteria-grid">
+          <div class="glass-card criteria-card">
+            <h4>Criterios de Inclusión</h4>
+            <ul id="criterios-inclusion"></ul>
+          </div>
+          <div class="glass-card criteria-card">
+            <h4>Criterios de Exclusión</h4>
+            <ul id="criterios-exclusion"></ul>
+          </div>
+        </div>
+
+        <div class="steps-section">
+          <h3 class="subsection-title">Pasos Metodológicos</h3>
+          <div class="steps-timeline" id="steps-timeline"></div>
+        </div>
+
+        <div class="glass-card removed-terms">
+          <h4>Términos Eliminados del Análisis</h4>
+          <div class="terms-tags" id="terms-tags"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB: RESULTADOS -->
+    <div class="tab-panel" id="tab-resultados">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-tag">Hallazgos</div>
+          <h2 class="section-title">Resultados del Análisis Bibliométrico</h2>
+          <p class="section-desc">Visualización de las principales métricas y tendencias identificadas en el corpus de 1,247 documentos.</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid" id="stats-grid"></div>
+
+        <!-- Chart Section -->
+        <div class="glass-card chart-card">
+          <div class="chart-header">
+            <h3>Producción Anual de Documentos</h3>
+            <p>Evolución temporal de publicaciones sobre NTN (2019-2025)</p>
+          </div>
+          <div class="chart-container" id="chart-html">
+            <!-- Chart rendered via HTML/CSS -->
+          </div>
+        </div>
+
+        <!-- Bibliometric Map -->
+        <div class="glass-card biblio-card">
+          <div class="biblio-header">
+            <h3>Mapa Bibliométrico</h3>
+            <p>Red de co-ocurrencia de términos y agrupaciones temáticas</p>
+          </div>
+          <div class="biblio-visual">
+            <img src="assets/bibliometric-map.jpg" alt="Mapa bibliométrico NTN" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Top Terms -->
+        <div class="glass-card terms-card">
+          <div class="terms-header">
+            <h3>Términos Más Frecuentes</h3>
+            <p>Palabras clave con mayor aparición en el corpus analizado</p>
+          </div>
+          <div class="terms-bars" id="terms-bars"></div>
+        </div>
+
+        <!-- Countries -->
+        <div class="glass-card countries-card">
+          <div class="countries-header">
+            <h3>Producción por País</h3>
+            <p>Principales países contribuyentes a la investigación en NTN</p>
+          </div>
+          <div class="countries-list" id="countries-list"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB: CLUSTERS -->
+    <div class="tab-panel" id="tab-clusters">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-tag">Agrupaciones Temáticas</div>
+          <h2 class="section-title">Clústeres de Investigación</h2>
+          <p class="section-desc">Seis agrupaciones temáticas identificadas mediante análisis de co-ocurrencia de palabras clave.</p>
+        </div>
+
+        <div class="clusters-visual">
+          <img src="assets/clusters-viz.jpg" alt="Visualización de clústeres" loading="lazy">
+        </div>
+
+        <div class="clusters-grid" id="clusters-grid"></div>
+      </section>
+    </div>
+
+    <!-- TAB: PALABRAS -->
+    <div class="tab-panel" id="tab-palabras">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-tag">Análisis Detallado</div>
+          <h2 class="section-title">Análisis por Palabras Seleccionadas</h2>
+          <p class="section-desc">Exploración de los 10 términos de mayor relevancia en el campo NTN.</p>
+        </div>
+
+        <!-- Word Explorer -->
+        <div class="word-explorer">
+          <div class="word-search">
+            <div class="search-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="word-search-input" placeholder="Buscar término..." oninput="filterWords()">
+            </div>
+          </div>
+          <div class="word-tags" id="word-tags"></div>
+          <div class="word-detail" id="word-detail"></div>
+        </div>
+
+        <!-- Keywords Visual -->
+        <div class="glass-card keywords-visual-card">
+          <img src="assets/keywords-analysis.jpg" alt="Análisis de palabras clave" loading="lazy">
+        </div>
+      </section>
+    </div>
+
+    <!-- TAB: REFLEXION -->
+    <div class="tab-panel" id="tab-reflexion">
+      <section class="section">
+        <div class="section-header">
+          <div class="section-tag">Reflexión Metacognitiva</div>
+          <h2 class="section-title">Reflexión sobre el Proceso de Investigación</h2>
+          <p class="section-desc">Aprendizajes, desafíos y perspectivas futuras derivadas del análisis bibliométrico.</p>
+        </div>
+
+        <div class="reflection-grid">
+          <div class="glass-card reflection-card">
+            <div class="reflection-icon" style="--r-icon: #00d4ff;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Aprendizajes Clave</h3>
+            <div class="reflection-content" id="reflection-learning"></div>
+          </div>
+
+          <div class="glass-card reflection-card">
+            <div class="reflection-icon" style="--r-icon: #ff6b35;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <h3>Desafíos Encontrados</h3>
+            <div class="reflection-content" id="reflection-challenges"></div>
+          </div>
+
+          <div class="glass-card reflection-card">
+            <div class="reflection-icon" style="--r-icon: #7c3aed;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Perspectivas Futuras</h3>
+            <div class="reflection-content" id="reflection-future"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Chatbot -->
+  <div class="chatbot-container" id="chatbot-container">
+    <div class="chatbot-header">
+      <div class="chatbot-info">
+        <div class="chatbot-avatar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        </div>
+        <div>
+          <span class="chatbot-name">NTN Assistant</span>
+          <span class="chatbot-status">En línea</span>
+        </div>
+      </div>
+      <button class="chatbot-close" onclick="toggleChatbot()" aria-label="Cerrar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages"></div>
+    <div class="chatbot-quick" id="chatbot-quick"></div>
+    <div class="chatbot-input">
+      <input type="text" id="chatbot-input" placeholder="Escribe tu pregunta sobre NTN..." onkeydown="handleChatKey(event)">
+      <button onclick="sendChatMessage()" aria-label="Enviar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Chatbot Toggle Button -->
+  <button class="chatbot-toggle" id="chatbot-toggle" onclick="toggleChatbot()" aria-label="Abrir asistente">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </button>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" onclick="scrollToTop()" aria-label="Volver arriba">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1.5"/>
+            <ellipse cx="20" cy="20" rx="18" ry="6" stroke="currentColor" stroke-width="1" opacity="0.4" transform="rotate(30 20 20)"/>
+            <ellipse cx="20" cy="20" rx="18" ry="6" stroke="currentColor" stroke-width="1" opacity="0.4" transform="rotate(-30 20 20)"/>
+            <circle cx="20" cy="3" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+        <div>
+          <span class="footer-title">NTN Research</span>
+          <p class="footer-subtitle">Non-Terrestrial Networks — Análisis Bibliométrico</p>
+        </div>
+      </div>
+      <div class="footer-team" id="footer-team"></div>
+      <p class="footer-copy">Universidad Industrial de Santander — Ingeniería de Telecomunicaciones — 2025</p>
+    </div>
+  </footer>
+
+  <script src="site-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
