@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NTN Research Atlas</title>
+  <meta name="description" content="Blog académico digital sobre Non-Terrestrial Networks con mapa bibliométrico VOSviewer interactivo, análisis por pestañas y mini-caso técnico." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-a"></div>
+  <div class="bg-glow bg-glow-b"></div>
+
+  <a class="skip-link" href="#appContent">Saltar al contenido</a>
+
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Blog académico-digital · NTN · VOSviewer · GitHub Pages</p>
+      <h1 id="siteTitle"></h1>
+      <p class="hero-subtitle" id="siteSubtitle"></p>
+      <p class="declaration" id="siteDeclaration"></p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" data-open-tab="mapa">Explorar mapa</button>
+        <button class="btn btn-secondary" data-open-tab="palabras">Ver palabras clave</button>
+        <button class="btn btn-secondary" data-open-tab="mini">Abrir mini-caso</button>
+        <button class="btn btn-secondary" id="assistantToggleMain" type="button">Asistente</button>
+      </div>
+    </div>
+    <div class="hero-visual-card">
+      <img src="assets/illustrations/hero-ntn.svg" alt="Ilustración de redes no terrestres y satélites" />
+    </div>
+  </header>
+
+  <main class="app-shell" id="appContent">
+    <nav class="tab-rail" aria-label="Secciones del sitio">
+      <button class="tab-btn active" data-tab="inicio">Inicio</button>
+      <button class="tab-btn" data-tab="equipo">Equipo</button>
+      <button class="tab-btn" data-tab="metodologia">Metodología</button>
+      <button class="tab-btn" data-tab="mapa">Mapa VOSviewer</button>
+      <button class="tab-btn" data-tab="clusteres">Clústeres</button>
+      <button class="tab-btn" data-tab="palabras">Palabras</button>
+      <button class="tab-btn" data-tab="mini">Mini-caso</button>
+      <button class="tab-btn" data-tab="reflexion">Reflexión</button>
+      <button class="tab-btn" data-tab="referencias">Referencias</button>
+    </nav>
+
+    <section class="content-shell">
+      <section class="tab-panel active" id="panel-inicio">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Vista general</p>
+            <h2>Panel de hallazgos</h2>
+          </div>
+        </div>
+        <div class="kpi-grid" id="kpiGrid"></div>
+
+        <div class="dashboard-grid">
+          <article class="glass-card">
+            <h3>Qué muestra este sitio</h3>
+            <p class="lead-copy">Este atlas web toma el nuevo CSV de Scopus y el JSON exportado por VOSviewer para convertir la revisión NTN en una experiencia de exploración interactiva. Aquí el foco no es solo leer resultados, sino navegar por ellos.</p>
+            <div class="bullet-grid" id="dashboardHighlights"></div>
+          </article>
+
+          <article class="glass-card">
+            <h3>Glosario rápido</h3>
+            <div class="glossary-grid" id="glossaryGrid"></div>
+          </article>
+        </div>
+
+        <div class="dashboard-grid dashboard-grid-3">
+          <article class="glass-card">
+            <h3>Tendencia temporal</h3>
+            <img class="chart-image" src="assets/charts/year_trend.svg" alt="Tendencia temporal de publicaciones NTN" />
+          </article>
+          <article class="glass-card">
+            <h3>Tipos de documento</h3>
+            <img class="chart-image" src="assets/charts/doc_types.svg" alt="Distribución por tipo de documento" />
+          </article>
+          <article class="glass-card">
+            <h3>Top keywords del CSV</h3>
+            <img class="chart-image" src="assets/charts/top_keywords.svg" alt="Palabras clave principales del nuevo CSV" />
+          </article>
+        </div>
+
+        <div class="cards-row" id="resultsCards"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-equipo">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Integrantes</p>
+            <h2>Equipo de trabajo</h2>
+          </div>
+        </div>
+        <div class="team-grid" id="teamGrid"></div>
+        <article class="glass-card team-note">
+          <h3>Enfoque del equipo</h3>
+          <p>El trabajo integra exploración bibliométrica, lectura técnica, visualización de resultados y una transferencia aplicada al mini-caso NTN. Todas las secciones del sitio fueron organizadas para mostrar el proceso de forma clara, navegable y visual.</p>
+        </article>
+      </section>
+
+      <section class="tab-panel" id="panel-metodologia">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Proceso</p>
+            <h2>Metodología</h2>
+          </div>
+        </div>
+        <div class="two-col">
+          <article class="glass-card">
+            <h3>Pregunta guía</h3>
+            <p id="researchQuestion"></p>
+            <h3>Objetivo general</h3>
+            <p id="generalObjective"></p>
+            <h3>Objetivos específicos</h3>
+            <ul class="clean-list" id="specificObjectives"></ul>
+          </article>
+          <article class="glass-card">
+            <h3>Cadena base</h3>
+            <div class="code-box" id="searchQuery"></div>
+            <h3>Filtros y criterios</h3>
+            <ul class="clean-list" id="methodFilters"></ul>
+          </article>
+        </div>
+        <div class="two-col">
+          <article class="glass-card">
+            <h3>Pasos ejecutados</h3>
+            <ol class="clean-list ordered" id="methodSteps"></ol>
+          </article>
+          <article class="glass-card">
+            <h3>Fuentes con mayor presencia</h3>
+            <div class="source-list" id="topSources"></div>
+          </article>
+        </div>
+        <div class="two-col">
+          <article class="glass-card">
+            <h3>Top keywords del CSV</h3>
+            <div class="keyword-list" id="topKeywordsList"></div>
+          </article>
+          <article class="glass-card">
+            <h3>Tipos de documento</h3>
+            <div class="type-list" id="docTypeList"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-mapa">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Visualización interactiva</p>
+            <h2>Mapa VOSviewer integrado</h2>
+          </div>
+        </div>
+        <article class="glass-card map-summary">
+          <p id="mapSummary"></p>
+        </article>
+        <div class="map-toolbar glass-card">
+          <div class="toolbar-left">
+            <input id="mapSearch" class="search-input" type="search" placeholder="Buscar nodo: ntn, leo, handover..." />
+            <button id="mapResetBtn" class="btn btn-secondary" type="button">Restablecer vista</button>
+          </div>
+          <div class="cluster-filters" id="clusterFilters"></div>
+        </div>
+        <div class="map-layout">
+          <article class="glass-card map-card">
+            <svg id="vosSvg" viewBox="0 0 1200 820" aria-label="Mapa bibliométrico interactivo de VOSviewer">
+              <g id="mapViewport"></g>
+            </svg>
+            <div class="map-hint">Arrastra para mover, usa la rueda para acercar y haz clic en un nodo para ver sus vínculos.</div>
+          </article>
+          <aside class="glass-card inspector-card">
+            <h3>Inspector del nodo</h3>
+            <div id="nodeInspector"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-clusteres">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Síntesis temática</p>
+            <h2>Clústeres de investigación</h2>
+          </div>
+        </div>
+        <div class="cluster-grid" id="clusterGrid"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-palabras">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Relaciones destacadas</p>
+            <h2>Análisis por palabras</h2>
+          </div>
+        </div>
+        <div class="words-toolbar glass-card">
+          <input id="wordSearch" class="search-input" type="search" placeholder="Filtra por término, clúster o vínculo..." />
+          <div class="chip-row" id="wordChips"></div>
+        </div>
+        <div class="analysis-grid" id="wordAnalysisGrid"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-mini">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Aplicación técnica</p>
+            <h2>Mini-caso interactivo</h2>
+          </div>
+        </div>
+        <div class="two-col">
+          <article class="glass-card">
+            <h3 id="miniTitle"></h3>
+            <p id="miniDescription"></p>
+            <h4>Supuestos</h4>
+            <ul class="clean-list" id="miniAssumptions"></ul>
+            <h4>Lecturas clave</h4>
+            <ul class="clean-list" id="miniInsights"></ul>
+          </article>
+          <article class="glass-card">
+            <h3>Calculadora</h3>
+            <div class="mini-form">
+              <label>Frecuencia (GHz)<input id="miniFrequency" type="number" step="0.1" /></label>
+              <label>Altitud LEO (km)<input id="miniAltitude" type="number" step="1" /></label>
+              <label>Potencia Tx (dBm)<input id="miniTxPower" type="number" step="0.1" /></label>
+              <label>Ganancia total (dB)<input id="miniGain" type="number" step="0.1" /></label>
+              <label>Pérdidas extra (dB)<input id="miniLoss" type="number" step="0.1" /></label>
+              <label>Umbral requerido (dBm)<input id="miniThreshold" type="number" step="0.1" /></label>
+            </div>
+            <div class="btn-row">
+              <button id="miniRun" class="btn btn-primary" type="button">Calcular</button>
+            </div>
+            <div class="mini-results" id="miniResults"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-reflexion">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Aprendizaje</p>
+            <h2>Reflexión metacognitiva</h2>
+          </div>
+        </div>
+        <article class="glass-card">
+          <p class="lead-copy" id="reflectionSummary"></p>
+        </article>
+        <div class="two-col">
+          <article class="glass-card">
+            <h3>Lecciones para la práctica</h3>
+            <div class="reflection-grid" id="reflectionCards"></div>
+          </article>
+          <article class="glass-card">
+            <h3>Qué funcionó en el proceso</h3>
+            <ul class="clean-list" id="reflectionPoints"></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-referencias">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Rigor académico</p>
+            <h2>Referencias IEEE</h2>
+          </div>
+        </div>
+        <div class="reference-list" id="referenceList"></div>
+      </section>
+    </section>
+  </main>
+
+  <button id="assistantFab" class="assistant-fab" type="button" aria-label="Abrir asistente">Asistente</button>
+
+  <aside id="assistantPanel" class="assistant-panel hidden" aria-label="Asistente del sitio">
+    <div class="assistant-head">
+      <div>
+        <p class="assistant-kicker">Asistente del sitio</p>
+        <h2>Explora el contenido</h2>
+      </div>
+      <div class="assistant-actions">
+        <button id="assistantHide" class="icon-btn" type="button" aria-label="Ocultar asistente">—</button>
+        <button id="assistantClose" class="icon-btn" type="button" aria-label="Cerrar asistente">×</button>
+      </div>
+    </div>
+    <p class="assistant-copy">Haz preguntas sobre el mapa, los clústeres, el mini-caso o los términos principales del sitio.</p>
+    <div class="assistant-prompts" id="assistantPrompts"></div>
+    <div class="chat-log" id="chatLog"></div>
+    <form id="chatForm" class="chat-form">
+      <input id="chatInput" type="text" placeholder="Escribe tu pregunta..." />
+      <button class="btn btn-primary" type="submit">Enviar</button>
+    </form>
+  </aside>
+
+  <button id="toTopBtn" class="to-top-btn" type="button" aria-label="Volver arriba">↑</button>
+
+  <script src="site-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
