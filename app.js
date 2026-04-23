@@ -1,3 +1,4 @@
+
 const data = window.SITE_DATA;
 
 function byId(id) { return document.getElementById(id); }
@@ -9,32 +10,43 @@ function escapeHtml(text) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
+function setText(id, value) { const el = byId(id); if (el) el.textContent = value; }
 
 function renderIntro() {
-  byId('site-title').textContent = data.meta.title;
-  byId('site-subtitle').textContent = data.meta.subtitle;
-  byId('declaration').textContent = data.meta.declaration;
+  setText('site-title', data.meta.title);
+  setText('site-subtitle', data.meta.subtitle);
+  setText('declaration', data.meta.declaration);
   byId('hero-highlights').innerHTML = data.meta.highlights.map(item => `<li>${escapeHtml(item)}</li>`).join('');
   byId('team-list').innerHTML = data.team.map(item => `<li><strong>${escapeHtml(item.name)}</strong> · ${escapeHtml(item.id)}</li>`).join('');
-  byId('research-question').textContent = data.research.question;
-  byId('general-objective').textContent = data.research.general_objective;
+  setText('research-question', data.research.question);
+  setText('general-objective', data.research.general_objective);
   byId('specific-objectives').innerHTML = data.research.specific_objectives.map(item => `<li>${escapeHtml(item)}</li>`).join('');
   byId('glossary').innerHTML = data.glossary.map(item => `<div class="glossary-item"><strong>${escapeHtml(item.term)}</strong><br>${escapeHtml(item.definition)}</div>`).join('');
+  const heroStats = (data.stats || []).slice(0, 4);
+  byId('hero-stats').innerHTML = heroStats.map(item => `<div class="hero-stat"><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(item.value)}</strong></div>`).join('');
+  const findings = [
+    'La literatura NTN gira alrededor de integración satelital-terrestre, cobertura extendida y continuidad de servicio.',
+    'Los desafíos más visibles son movilidad, handover, Doppler, sincronización y compatibilidad con 5G-Advanced.',
+    'Los clústeres conectan arquitectura, segmento espacial, radioenlace y optimización inteligente.',
+    'El mini-caso muestra la sensibilidad del margen de enlace a frecuencia, pérdidas y altura orbital.'
+  ];
+  byId('instant-findings').innerHTML = findings.map(item => `<div class="highlight-item">${escapeHtml(item)}</div>`).join('');
 }
 
 function renderMethodology() {
   byId('search-query').textContent = data.method.search_query;
   byId('method-steps').innerHTML = data.method.steps.map(item => `<li>${escapeHtml(item)}</li>`).join('');
-  byId('kpi-grid').innerHTML = data.stats.map(item => `
-    <div class="stat-card">
-      <span>${escapeHtml(item.label)}</span>
-      <strong>${escapeHtml(item.value)}</strong>
-      <div>${escapeHtml(item.note)}</div>
-    </div>
-  `).join('');
-  byId('removed-terms').innerHTML = data.method.removed_terms.map(item => `
-    <tr><td>${escapeHtml(item.term)}</td><td>${escapeHtml(item.count)}</td><td>${escapeHtml(item.reason)}</td></tr>
-  `).join('');
+  byId('kpi-grid').innerHTML = data.stats.map(item => `<div class="stat-card"><span>${escapeHtml(item.label)}</span><strong>${escapeHtml(item.value)}</strong><div>${escapeHtml(item.note)}</div></div>`).join('');
+  byId('removed-terms').innerHTML = data.method.removed_terms.map(item => `<tr><td>${escapeHtml(item.term)}</td><td>${escapeHtml(item.count)}</td><td>${escapeHtml(item.reason)}</td></tr>`).join('');
+}
+
+function renderResultsNarrative() {
+  const items = [
+    'El mapa general concentra un núcleo fuerte en integración satelital, arquitectura NTN y continuidad de cobertura.',
+    'Los términos más frecuentes refuerzan la relación entre órbitas LEO, handover, Doppler y compatibilidad con ecosistemas 5G/6G.',
+    'La red bibliométrica sugiere que NTN dejó de tratarse como componente aislado y aparece como extensión funcional del acceso avanzado.'
+  ];
+  byId('results-narrative').innerHTML = items.map(text => `<div class="highlight-item">${escapeHtml(text)}</div>`).join('');
 }
 
 function renderClusters() {
@@ -51,271 +63,179 @@ function renderClusters() {
 
 function renderAnalysis(filter = '') {
   const normalized = filter.trim().toLowerCase();
-  const list = data.word_analyses.filter(item => {
-    return !normalized || item.display.toLowerCase().includes(normalized) || item.word.toLowerCase().includes(normalized) || item.cluster.toLowerCase().includes(normalized);
-  });
+  const list = data.word_analyses.filter(item => !normalized || item.display.toLowerCase().includes(normalized) || item.word.toLowerCase().includes(normalized) || item.cluster.toLowerCase().includes(normalized));
   byId('analysis-list').innerHTML = list.map(item => `
     <article class="analysis-card">
       <h3>${escapeHtml(item.display)}</h3>
-      <p class="cluster-meta">Clúster: ${escapeHtml(item.cluster)} · frecuencia ${item.frequency}</p>
-      <div class="analysis-grid">
-        <div>
-          <img src="${escapeHtml(item.image)}" alt="Red local de ${escapeHtml(item.display)}" />
-          <p>${escapeHtml(item.analysis)}</p>
-          <p><strong>Conclusión:</strong> ${escapeHtml(item.conclusion)}</p>
-        </div>
-        <div>
-          <details open>
-            <summary>Ver 10 enlaces con fuerza de asociación</summary>
-            <table>
-              <thead><tr><th>Enlace relacionado</th><th>Fuerza</th><th>Clúster</th></tr></thead>
-              <tbody>
-                ${item.links.map(link => `<tr><td>${escapeHtml(link.display)}</td><td>${link.weight}</td><td>${escapeHtml(link.cluster)}</td></tr>`).join('')}
-              </tbody>
-            </table>
-          </details>
-        </div>
+      <p class="cluster-meta">Clúster: ${escapeHtml(item.cluster)} · frecuencia ${escapeHtml(item.frequency)} · fuerza total ${escapeHtml(item.total_strength)}</p>
+      <p>${escapeHtml(item.analysis)}</p>
+      <p><strong>Conclusión:</strong> ${escapeHtml(item.conclusion)}</p>
+      <div class="analysis-links">
+        ${item.links.slice(0, 10).map(link => `<div class="analysis-link-item"><span>${escapeHtml(link.term)} <small>(${escapeHtml(link.cluster)})</small></span><strong>${escapeHtml(link.strength)}</strong></div>`).join('')}
       </div>
     </article>
   `).join('');
+  byId('analysis-chips').innerHTML = list.slice(0, 12).map(item => `<div class="analysis-chip">${escapeHtml(item.display)}</div>`).join('');
 }
 
 function renderMiniCase() {
-  byId('mini-objective').textContent = data.mini_case.objective;
-  byId('mini-hypothesis').textContent = data.mini_case.hypothesis;
+  setText('mini-title', data.mini_case.title);
+  setText('mini-description', data.mini_case.description);
   byId('mini-assumptions').innerHTML = data.mini_case.assumptions.map(item => `<li>${escapeHtml(item)}</li>`).join('');
   byId('mini-findings').innerHTML = data.mini_case.findings.map(item => `<li>${escapeHtml(item)}</li>`).join('');
+  byId('input-frequency').value = data.mini_case.default_inputs.frequency_ghz;
+  byId('input-altitude').value = data.mini_case.default_inputs.altitude_km;
+  byId('input-tx').value = data.mini_case.default_inputs.tx_power_dbm;
+  byId('input-gain').value = data.mini_case.default_inputs.total_gain_db;
+  byId('input-loss').value = data.mini_case.default_inputs.extra_losses_db;
+  byId('input-threshold').value = data.mini_case.default_inputs.required_threshold_db;
+  calculateMiniCase();
 }
 
-function calcSlantRangeKm(altKm, elevDeg) {
-  const R = 6371;
-  const e = elevDeg * Math.PI / 180;
-  return Math.sqrt((R + altKm) ** 2 - (R * Math.cos(e)) ** 2) - R * Math.sin(e);
-}
-function calcFsplDb(freqGhz, distanceKm) { return 92.45 + 20 * Math.log10(freqGhz) + 20 * Math.log10(distanceKm); }
-function calcDopplerHz(freqGhz, elevDeg) {
-  const c = 299792458;
-  const v = 7560 * Math.cos(elevDeg * Math.PI / 180);
-  return (v / c) * (freqGhz * 1e9);
-}
-function renderCalculatorResult(evt) {
-  if (evt) evt.preventDefault();
-  const freq = parseFloat(byId('calc-freq').value);
-  const alt = parseFloat(byId('calc-alt').value);
-  const elev = parseFloat(byId('calc-elev').value);
-  const eirp = parseFloat(byId('calc-eirp').value);
-  const grx = parseFloat(byId('calc-grx').value);
-  const loss = parseFloat(byId('calc-loss').value);
-  const bw = parseFloat(byId('calc-bw').value) * 1e6;
-  const nf = parseFloat(byId('calc-nf').value);
-  const distance = calcSlantRangeKm(alt, elev);
-  const fspl = calcFsplDb(freq, distance);
-  const prx = eirp + grx - fspl - loss;
-  const noise = -174 + 10 * Math.log10(bw) + nf;
-  const snr = prx - noise;
-  const delayMs = (distance * 1000 / 299792458) * 1000;
-  const doppler = calcDopplerHz(freq, elev);
-  byId('calc-output').innerHTML = `
-    <strong>Resultado estimado</strong><br>
-    Distancia oblicua: <strong>${distance.toFixed(1)} km</strong><br>
-    FSPL: <strong>${fspl.toFixed(2)} dB</strong><br>
-    Potencia recibida: <strong>${prx.toFixed(2)} dBm</strong><br>
-    Ruido térmico + NF: <strong>${noise.toFixed(2)} dBm</strong><br>
-    SNR estimada: <strong>${snr.toFixed(2)} dB</strong><br>
-    Retardo unidireccional: <strong>${delayMs.toFixed(3)} ms</strong><br>
-    Doppler aproximado: <strong>${doppler.toFixed(1)} Hz</strong>
-  `;
-}
-
-function renderVideo() {
-  const wrapper = byId('video-wrapper');
-  if (data.video.youtube_id && data.video.youtube_id !== 'VIDEO_ID_AQUI') {
-    wrapper.innerHTML = `<iframe src="https://www.youtube.com/embed/${encodeURIComponent(data.video.youtube_id)}" title="Sustentación NTN" allowfullscreen></iframe>`;
-  } else {
-    wrapper.innerHTML = `<div><p><strong>Falta insertar el video de YouTube.</strong></p><p>Abre <code>site-data.js</code> y reemplaza <code>VIDEO_ID_AQUI</code> por el ID de tu sustentación. El resto de la página ya está listo para publicar.</p></div>`;
-  }
-}
-
-function renderReflection() {
-  byId('reflection-list').innerHTML = data.reflection.map(item => `<li>${escapeHtml(item)}</li>`).join('');
+function calculateMiniCase() {
+  const frequencyGHz = parseFloat(byId('input-frequency').value);
+  const altitudeKm = parseFloat(byId('input-altitude').value);
+  const txPower = parseFloat(byId('input-tx').value);
+  const totalGain = parseFloat(byId('input-gain').value);
+  const extraLoss = parseFloat(byId('input-loss').value);
+  const threshold = parseFloat(byId('input-threshold').value);
+  const distanceKm = Math.max(altitudeKm, 1);
+  const fspl = 92.45 + 20 * Math.log10(Math.max(frequencyGHz, 0.1)) + 20 * Math.log10(distanceKm);
+  const rxPower = txPower + totalGain - fspl - extraLoss;
+  const margin = rxPower - threshold;
+  const dopplerIndicator = (frequencyGHz * 1000 * 7.5) / 300000;
+  const cards = [
+    { label: 'FSPL estimada', value: `${fspl.toFixed(2)} dB` },
+    { label: 'Potencia recibida', value: `${rxPower.toFixed(2)} dBm` },
+    { label: 'Margen de enlace', value: `${margin.toFixed(2)} dB` },
+    { label: 'Indicador Doppler', value: `${dopplerIndicator.toFixed(2)} kHz aprox.` }
+  ];
+  byId('mini-results').innerHTML = cards.map(card => `<div class="mini-result-card"><strong>${escapeHtml(card.label)}</strong><br><span>${escapeHtml(card.value)}</span></div>`).join('');
 }
 
 function renderReferences() {
   byId('reference-list').innerHTML = data.references.map(item => `<li>${escapeHtml(item)}</li>`).join('');
 }
-
-function initFeedback() {
-  const key = 'ntn_blog_feedback';
-  const load = () => JSON.parse(localStorage.getItem(key) || '[]');
-  const save = items => localStorage.setItem(key, JSON.stringify(items));
-  const render = () => {
-    const items = load();
-    byId('feedback-list').innerHTML = items.length ? items.map(item => `
-      <div class="feedback-item"><strong>${escapeHtml(item.name)}</strong><br>${escapeHtml(item.text)}</div>
-    `).join('') : '<div class="feedback-item">Aún no hay comentarios locales guardados en este navegador.</div>';
-  };
-  byId('feedback-form').addEventListener('submit', evt => {
-    evt.preventDefault();
-    const name = byId('feedback-name').value.trim() || 'Anónimo';
-    const text = byId('feedback-text').value.trim();
-    if (!text) return;
-    const items = load();
-    items.unshift({ name, text });
-    save(items.slice(0, 12));
-    byId('feedback-form').reset();
-    render();
-  });
-  render();
+function renderReflection() {
+  byId('reflection-list').innerHTML = data.reflection.points.map(item => `<li>${escapeHtml(item)}</li>`).join('');
+  byId('reflection-cards').innerHTML = data.reflection.professional_lessons.map(item => `<div class="reflection-card">${escapeHtml(item)}</div>`).join('');
 }
-
-function tokenize(text) {
-  return text.toLowerCase()
-    .normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9ñáéíóúü\s-]/g, ' ')
-    .split(/\s+/)
-    .filter(Boolean)
-    .filter(token => !data.chatbot.stopwords.includes(token));
-}
-
-function buildKnowledgeBase() {
-  const docs = [];
-  data.chatbot.knowledge.forEach(item => {
-    const tokens = tokenize(`${item.title} ${item.text}`);
-    docs.push({ ...item, tokens });
-  });
-  const df = {};
-  docs.forEach(doc => {
-    new Set(doc.tokens).forEach(token => { df[token] = (df[token] || 0) + 1; });
-  });
-  const N = docs.length;
-  docs.forEach(doc => {
-    const tf = {};
-    doc.tokens.forEach(token => { tf[token] = (tf[token] || 0) + 1; });
-    const vector = {};
-    Object.entries(tf).forEach(([token, value]) => {
-      const idf = Math.log((N + 1) / ((df[token] || 0) + 1)) + 1;
-      vector[token] = value * idf;
-    });
-    doc.vector = vector;
-    doc.norm = Math.sqrt(Object.values(vector).reduce((acc, value) => acc + value * value, 0)) || 1;
-  });
-  return docs;
-}
-
-function vectorizeQuery(query, docs) {
-  const tokens = tokenize(query);
-  const tf = {};
-  tokens.forEach(token => { tf[token] = (tf[token] || 0) + 1; });
-  const df = {};
-  docs.forEach(doc => {
-    Object.keys(doc.vector).forEach(token => { df[token] = (df[token] || 0) + 1; });
-  });
-  const vector = {};
-  const N = docs.length;
-  Object.entries(tf).forEach(([token, value]) => {
-    const idf = Math.log((N + 1) / ((df[token] || 0) + 1)) + 1;
-    vector[token] = value * idf;
-  });
-  const norm = Math.sqrt(Object.values(vector).reduce((acc, value) => acc + value * value, 0)) || 1;
-  return { vector, norm };
-}
-
-function similarity(queryVec, doc) {
-  let dot = 0;
-  Object.entries(queryVec.vector).forEach(([token, value]) => {
-    if (doc.vector[token]) dot += value * doc.vector[token];
-  });
-  return dot / (queryVec.norm * doc.norm);
-}
-
-function ruleBasedAnswer(query) {
-  const q = query.toLowerCase();
-  if (q.includes('declaracion') || q.includes('declaración')) {
-    return { answer: data.meta.declaration, source: 'Declaración obligatoria del blog' };
+function renderVideo() {
+  const container = byId('video-frame');
+  const videoId = data.meta.youtube_video_id || '';
+  if (videoId && !videoId.includes('REEMPLAZAR')) {
+    container.innerHTML = `<iframe src="https://www.youtube.com/embed/${encodeURIComponent(videoId)}" title="Video de sustentación NTN" allowfullscreen loading="lazy"></iframe>`;
+  } else {
+    container.innerHTML = `<div class="placeholder-box"><div><h3>Video de sustentación</h3><p>Espacio reservado para la socialización final del proyecto.</p></div></div>`;
   }
-  if (q.includes('cadena') && q.includes('busqueda')) {
-    return { answer: `La cadena de búsqueda base del proyecto es: ${data.method.search_query}.`, source: 'Metodología' };
-  }
-  if (q.includes('integrante') || q.includes('autores') || q.includes('equipo')) {
-    return { answer: data.team.map(item => `${item.name} (${item.id})`).join(', '), source: 'Presentación del proyecto' };
-  }
-  if (q.includes('mini caso') || q.includes('minicaso')) {
-    return { answer: data.mini_case.objective + ' ' + data.mini_case.findings[0], source: 'Mini-caso técnico' };
-  }
-  if (q.includes('video')) {
-    return { answer: 'El video de sustentación está preparado para incrustarse desde YouTube. Debes reemplazar el ID del video en site-data.js cuando lo graben.', source: 'Sección de video' };
-  }
-  return null;
 }
 
-function initChatbot() {
-  const docs = buildKnowledgeBase();
-  const panel = byId('chatbot-panel');
-  const messages = byId('chatbot-messages');
-  const addMessage = (role, html) => {
-    const div = document.createElement('div');
-    div.className = `message ${role}`;
-    div.innerHTML = html;
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
-  };
-  addMessage('bot', '<strong>Hola.</strong> Soy el asistente local del blog. Puedo responder preguntas sobre NTN, clústeres, términos, metodología, mini-caso y referencias.');
-  byId('chatbot-toggle').addEventListener('click', () => {
-    panel.hidden = !panel.hidden;
-  });
-  byId('chatbot-form').addEventListener('submit', evt => {
-    evt.preventDefault();
-    const query = byId('chatbot-input').value.trim();
-    if (!query) return;
-    addMessage('user', escapeHtml(query));
-    byId('chatbot-input').value = '';
-    const ruled = ruleBasedAnswer(query);
-    if (ruled) {
-      addMessage('bot', `${escapeHtml(ruled.answer)}<br><small>Fuente: ${escapeHtml(ruled.source)}</small>`);
-      return;
-    }
-    const qv = vectorizeQuery(query, docs);
-    const ranked = docs.map(doc => ({ doc, score: similarity(qv, doc) })).sort((a, b) => b.score - a.score).slice(0, 3);
-    if (!ranked[0] || ranked[0].score < 0.12) {
-      addMessage('bot', 'No encontré suficiente evidencia en la base local del blog para responder con seguridad. Prueba con otra formulación o revisa las secciones de metodología, análisis por palabra o mini-caso.');
-      return;
-    }
-    const answer = ranked.map(item => `${item.doc.text}`).join(' ');
-    const sources = ranked.map(item => item.doc.title).join(' · ');
-    addMessage('bot', `${escapeHtml(answer)}<br><small>Fuente local: ${escapeHtml(sources)}</small>`);
-  });
-}
-
-function initShare() {
-  document.querySelectorAll('[data-share]').forEach(button => {
+function setupTabs() {
+  const buttons = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+  buttons.forEach(button => {
     button.addEventListener('click', () => {
-      const url = window.location.href;
-      const text = encodeURIComponent(data.meta.title);
-      const encodedUrl = encodeURIComponent(url);
-      let target = '';
-      if (button.dataset.share === 'linkedin') target = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
-      if (button.dataset.share === 'x') target = `https://x.com/intent/post?text=${text}&url=${encodedUrl}`;
-      if (button.dataset.share === 'whatsapp') target = `https://wa.me/?text=${text}%20${encodedUrl}`;
-      window.open(target, '_blank', 'noopener,noreferrer');
+      const target = button.dataset.tab;
+      buttons.forEach(btn => { btn.classList.remove('active'); btn.setAttribute('aria-selected', 'false'); });
+      panels.forEach(panel => panel.classList.remove('active'));
+      button.classList.add('active');
+      button.setAttribute('aria-selected', 'true');
+      byId(target).classList.add('active');
     });
   });
 }
 
+function getAssistantAnswer(question) {
+  const q = question.toLowerCase();
+  const corpus = [];
+  corpus.push(...data.glossary.map(item => ({ keys: [item.term.toLowerCase()], answer: `${item.term}: ${item.definition}` })));
+  corpus.push(...data.clusters.map(item => ({ keys: [item.name.toLowerCase(), ...(item.top_terms || []).map(t => String(t).toLowerCase())], answer: `${item.name}: ${item.summary} Oportunidades: ${item.opportunities}` })));
+  corpus.push(...data.word_analyses.map(item => ({ keys: [item.word.toLowerCase(), item.display.toLowerCase()], answer: `${item.display}: ${item.analysis} Conclusión: ${item.conclusion}` })));
+  corpus.push(
+    { keys: ['mini caso', 'link budget', 'doppler', 'leo'], answer: `${data.mini_case.title}: ${data.mini_case.description}` },
+    { keys: ['metodologia', 'búsqueda', 'scopus', 'vosviewer'], answer: `Metodología: ${data.method.steps.join(' ')}` },
+    { keys: ['objetivo', 'objetivos'], answer: `Objetivo general: ${data.research.general_objective}` }
+  );
+  const match = corpus.find(item => item.keys.some(key => q.includes(key)));
+  return match ? match.answer : 'Puedo ayudarte con conceptos de NTN, resultados, clústeres, palabras seleccionadas, metodología o mini-caso.';
+}
+
+function addChatBubble(text, role = 'assistant') {
+  const div = document.createElement('div');
+  div.className = `chat-bubble ${role}`;
+  div.textContent = text;
+  byId('chat-log').appendChild(div);
+  byId('chat-log').scrollTop = byId('chat-log').scrollHeight;
+}
+
+function setupAssistant() {
+  const panel = byId('assistant-panel');
+  const fab = byId('assistant-fab');
+  const topBtn = byId('toggle-assistant-top');
+  const navBtn = byId('toggle-assistant-nav');
+  const closeBtn = byId('assistant-close');
+  const collapseBtn = byId('assistant-collapse');
+  const form = byId('chat-form');
+  const input = byId('chat-input');
+  let visible = true;
+
+  function syncButtons() {
+    topBtn.textContent = visible ? 'Ocultar asistente IA' : 'Mostrar asistente IA';
+    navBtn.textContent = visible ? 'Ocultar IA' : 'Mostrar IA';
+    fab.setAttribute('aria-expanded', visible ? 'true' : 'false');
+  }
+  function showPanel() { visible = true; panel.classList.remove('hidden'); syncButtons(); }
+  function hidePanel() { visible = false; panel.classList.add('hidden'); syncButtons(); }
+  function togglePanel() { visible ? hidePanel() : showPanel(); }
+
+  [topBtn, navBtn, fab].forEach(btn => btn.addEventListener('click', togglePanel));
+  closeBtn.addEventListener('click', hidePanel);
+  collapseBtn.addEventListener('click', hidePanel);
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const question = input.value.trim();
+    if (!question) return;
+    addChatBubble(question, 'user');
+    const answer = getAssistantAnswer(question);
+    window.setTimeout(() => addChatBubble(answer, 'assistant'), 120);
+    input.value = '';
+  });
+
+  const prompts = ['¿Qué significa LEO?', 'Resume los clústeres', '¿Qué analiza el mini-caso?', '¿Cuál es la metodología usada?'];
+  byId('quick-prompts').innerHTML = prompts.map(prompt => `<button class="prompt-btn" type="button">${escapeHtml(prompt)}</button>`).join('');
+  document.querySelectorAll('.prompt-btn').forEach(btn => btn.addEventListener('click', () => {
+    addChatBubble(btn.textContent, 'user');
+    const answer = getAssistantAnswer(btn.textContent);
+    window.setTimeout(() => addChatBubble(answer, 'assistant'), 120);
+  }));
+  addChatBubble('Hola. Soy el asistente del blog NTN. Puedes ocultarme o mostrarme cuando quieras.', 'assistant');
+  syncButtons();
+}
+
+function setupBackToTop() {
+  const btn = byId('back-to-top');
+  window.addEventListener('scroll', () => window.scrollY > 500 ? btn.classList.add('visible') : btn.classList.remove('visible'));
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+function setupAnalysisFilter() {
+  const input = byId('analysis-filter');
+  input.addEventListener('input', () => renderAnalysis(input.value));
+}
 function boot() {
   renderIntro();
   renderMethodology();
+  renderResultsNarrative();
   renderClusters();
   renderAnalysis();
   renderMiniCase();
-  renderVideo();
-  renderReflection();
   renderReferences();
-  renderCalculatorResult();
-  byId('calc-form').addEventListener('submit', renderCalculatorResult);
-  byId('analysis-filter').addEventListener('input', evt => renderAnalysis(evt.target.value));
-  initFeedback();
-  initChatbot();
-  initShare();
+  renderReflection();
+  renderVideo();
+  byId('mini-run').addEventListener('click', calculateMiniCase);
+  setupTabs();
+  setupAssistant();
+  setupBackToTop();
+  setupAnalysisFilter();
 }
-
-document.addEventListener('DOMContentLoaded', boot);
+boot();
