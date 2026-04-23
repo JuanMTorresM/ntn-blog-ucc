@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NTN · Blog académico-digital</title>
+  <meta name="description" content="Blog académico-digital sobre Non-Terrestrial Networks con mapa interactivo, clústeres, análisis por palabras y mini-caso técnico." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-blob blob-a"></div>
+  <div class="bg-blob blob-b"></div>
+
+  <a class="skip-link" href="#mainContent">Saltar al contenido</a>
+
+  <header class="hero-shell">
+    <div class="hero-copy">
+      <p class="eyebrow" id="heroEyebrow"></p>
+      <h1 id="heroTitle"></h1>
+      <p class="hero-subtitle" id="heroSubtitle"></p>
+      <p class="declaration" id="heroDeclaration"></p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" data-tab-target="ntn">Ir al tema</button>
+        <button class="btn btn-secondary" data-tab-target="mapa">Ver el mapa</button>
+        <button class="btn btn-secondary" data-tab-target="mini">Probar el mini-caso</button>
+        <button class="btn btn-secondary" id="assistantMainBtn" type="button">Abrir asistente</button>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="assets/illustrations/hero-ntn.svg" alt="Ilustración de satélites, cobertura y enlaces en NTN" />
+      <div class="hero-points" id="heroPoints"></div>
+    </div>
+  </header>
+
+  <main class="workspace" id="mainContent">
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <div class="brand-mark">NTN</div>
+        <p class="sidebar-copy">Trabajo de Comunicaciones II sobre redes no terrestres.</p>
+      </div>
+
+      <nav class="tab-menu" aria-label="Navegación por pestañas">
+        <button class="tab-link active" data-tab="inicio">Inicio</button>
+        <button class="tab-link" data-tab="ntn">Tema NTN</button>
+        <button class="tab-link" data-tab="metodologia">Metodología</button>
+        <button class="tab-link" data-tab="mapa">Mapa interactivo</button>
+        <button class="tab-link" data-tab="clusteres">Clústeres</button>
+        <button class="tab-link" data-tab="palabras">Palabras</button>
+        <button class="tab-link" data-tab="mini">Mini-caso</button>
+        <button class="tab-link" data-tab="equipo">Equipo</button>
+        <button class="tab-link" data-tab="referencias">Referencias</button>
+        <button class="tab-link" data-tab="reflexion">Reflexión</button>
+      </nav>
+    </aside>
+
+    <section class="content-window">
+      <section class="tab-panel active" id="panel-inicio">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Visión general</p>
+            <h2>¿Qué deja ver el trabajo?</h2>
+          </div>
+          <p class="panel-intro">Aquí está la lectura rápida del tema: qué es NTN, por qué importa y qué patrones aparecen al mirar el mapa de investigación.</p>
+        </div>
+
+        <div class="kpi-grid" id="kpiGrid"></div>
+
+        <div class="grid-two">
+          <article class="card">
+            <h3>Pregunta guía</h3>
+            <p id="researchQuestion"></p>
+            <h3>Objetivo general</h3>
+            <p id="generalObjective"></p>
+          </article>
+
+          <article class="card">
+            <h3>Lo más importante que se encontró</h3>
+            <div class="bullet-stack" id="highlightsStack"></div>
+          </article>
+        </div>
+
+        <div class="grid-three">
+          <article class="card">
+            <h3>Evolución del tema</h3>
+            <div id="yearChart" class="chart-bars"></div>
+          </article>
+          <article class="card">
+            <h3>Tipo de publicaciones</h3>
+            <div id="docTypeChart" class="chart-bars"></div>
+          </article>
+          <article class="card">
+            <h3>Palabras más repetidas</h3>
+            <div id="keywordCloud" class="tag-cloud"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-ntn">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Tema del trabajo</p>
+            <h2>¿Qué son las Non-Terrestrial Networks?</h2>
+          </div>
+          <p class="panel-intro">En esta pestaña está el corazón temático del trabajo, explicado de una forma más clara y directa.</p>
+        </div>
+
+        <div class="grid-two">
+          <article class="card emphasis-card">
+            <h3>Definición</h3>
+            <p id="ntnDefinition"></p>
+            <h3>¿Por qué se está investigando tanto?</h3>
+            <p id="ntnWhy"></p>
+          </article>
+          <article class="card">
+            <h3>Objetivos específicos</h3>
+            <ul class="clean-list" id="specificObjectives"></ul>
+          </article>
+        </div>
+
+        <div class="grid-four" id="ntnCards"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-metodologia">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Cómo se hizo</p>
+            <h2>Metodología de trabajo</h2>
+          </div>
+          <p class="panel-intro">La idea fue revisar la literatura reciente del tema y apoyarnos en el mapa interactivo para leer mejor cómo se conectan los conceptos.</p>
+        </div>
+
+        <div class="grid-two">
+          <article class="card">
+            <h3>Cadena base de búsqueda</h3>
+            <div class="code-box" id="searchQuery"></div>
+            <h3>Criterios de lectura</h3>
+            <ul class="clean-list" id="methodFilters"></ul>
+          </article>
+          <article class="card">
+            <h3>Pasos seguidos</h3>
+            <ol class="clean-list ordered" id="methodSteps"></ol>
+          </article>
+        </div>
+
+        <div class="grid-two">
+          <article class="card">
+            <h3>Fuentes donde más aparece el tema</h3>
+            <div id="sourceList" class="metric-list"></div>
+          </article>
+          <article class="card">
+            <h3>Depuración de términos</h3>
+            <p class="soft-copy">En el mapa original aparecían términos muy generales o incluso fuera del foco de telecomunicaciones. Por eso la lectura final se quedó con lo que sí ayuda a explicar NTN.</p>
+            <div class="removed-table" id="removedTerms"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-mapa">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Mapa de términos</p>
+            <h2>Mapa VOSviewer en la página</h2>
+          </div>
+          <p class="panel-intro">A la izquierda aparece la vista original del mapa y a la derecha una versión interactiva para buscar nodos, activar clústeres y leer vínculos.</p>
+        </div>
+
+        <article class="card summary-card">
+          <p id="mapSummary"></p>
+        </article>
+
+        <div class="grid-two map-top-grid">
+          <article class="card">
+            <h3>Mapa original</h3>
+            <img class="raw-map-image" src="assets/images/vosviewer-original.jpg" alt="Mapa original generado en VOSviewer para el tema NTN" />
+          </article>
+
+          <article class="card inspector-card">
+            <h3>Inspector del nodo</h3>
+            <div id="nodeInspector"></div>
+          </article>
+        </div>
+
+        <article class="card">
+          <div class="map-toolbar">
+            <input id="mapSearch" class="search-input" type="search" placeholder="Busca un término: NTN, leo, quality, 5g nr..." />
+            <button id="mapResetBtn" class="btn btn-secondary" type="button">Restablecer vista</button>
+          </div>
+          <div class="cluster-filters" id="clusterFilters"></div>
+          <div class="map-card">
+            <svg id="vosSvg" viewBox="0 0 1200 820" aria-label="Mapa bibliométrico interactivo de NTN">
+              <g id="mapViewport"></g>
+            </svg>
+          </div>
+          <p class="map-hint">Puedes arrastrar el mapa, acercarte con la rueda del mouse y hacer clic sobre un nodo para ver sus vínculos principales.</p>
+        </article>
+      </section>
+
+      <section class="tab-panel" id="panel-clusteres">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Lectura temática</p>
+            <h2>Clústeres de investigación</h2>
+          </div>
+          <p class="panel-intro">El mapa se puede leer como cinco grandes familias temáticas. Cada una muestra un ángulo distinto del problema NTN.</p>
+        </div>
+
+        <div class="cluster-grid" id="clusterGrid"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-palabras">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Términos seleccionados</p>
+            <h2>Análisis por palabras</h2>
+          </div>
+          <p class="panel-intro">Aquí se ven palabras representativas del tema, sus vínculos más fuertes y una lectura corta de lo que dicen dentro del mapa.</p>
+        </div>
+
+        <article class="card words-toolbar">
+          <input id="wordSearch" class="search-input" type="search" placeholder="Filtra por término, clúster o vínculo..." />
+          <div class="chip-row" id="wordChips"></div>
+        </article>
+
+        <div class="analysis-grid" id="wordAnalysisGrid"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-mini">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Aplicación del tema</p>
+            <h2>Mini-caso técnico</h2>
+          </div>
+          <p class="panel-intro">El objetivo fue llevar la revisión a una situación de ingeniería sencilla: un enlace LEO con cálculo básico del margen y una aproximación del efecto Doppler.</p>
+        </div>
+
+        <div class="grid-two">
+          <article class="card">
+            <h3 id="miniTitle"></h3>
+            <p id="miniDescription"></p>
+            <h4>Supuestos</h4>
+            <ul class="clean-list" id="miniAssumptions"></ul>
+            <h4>Lecturas que deja el caso</h4>
+            <ul class="clean-list" id="miniInsights"></ul>
+          </article>
+
+          <article class="card">
+            <h3>Calculadora</h3>
+            <div class="mini-form">
+              <label>Frecuencia (GHz)<input id="miniFrequency" type="number" step="0.1" /></label>
+              <label>Altitud LEO (km)<input id="miniAltitude" type="number" step="1" /></label>
+              <label>Potencia Tx (dBm)<input id="miniTxPower" type="number" step="0.1" /></label>
+              <label>Ganancia total (dB)<input id="miniGain" type="number" step="0.1" /></label>
+              <label>Pérdidas extra (dB)<input id="miniLoss" type="number" step="0.1" /></label>
+              <label>Umbral mínimo (dBm)<input id="miniThreshold" type="number" step="0.1" /></label>
+            </div>
+            <button id="miniRun" class="btn btn-primary" type="button">Calcular</button>
+            <div class="mini-results" id="miniResults"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-equipo">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Equipo del trabajo</p>
+            <h2>Integrantes</h2>
+          </div>
+          <p class="panel-intro">Esta pestaña reúne al grupo de trabajo y el contexto académico del proyecto.</p>
+        </div>
+
+        <div class="team-grid" id="teamGrid"></div>
+
+        <div class="grid-two">
+          <article class="card">
+            <h3>Curso</h3>
+            <p id="courseName"></p>
+            <h3>Profesor</h3>
+            <p id="courseProfessor"></p>
+          </article>
+          <article class="card">
+            <h3>Propósito del grupo</h3>
+            <p id="teamText"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-referencias">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Fuentes consultadas</p>
+            <h2>Referencias IEEE</h2>
+          </div>
+          <p class="panel-intro">Se seleccionaron referencias directamente relacionadas con la evolución de NTN, integración con 5G/6G y operación satelital.</p>
+        </div>
+
+        <div class="reference-list" id="referenceList"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-reflexion">
+        <div class="panel-head">
+          <div>
+            <p class="section-kicker">Cierre del trabajo</p>
+            <h2>Reflexión</h2>
+          </div>
+          <p class="panel-intro">Esta parte resume qué nos dejó el proceso de revisar el tema, interpretar el mapa y aterrizarlo a una situación concreta.</p>
+        </div>
+
+        <article class="card summary-card">
+          <p id="reflectionSummary"></p>
+        </article>
+
+        <div class="grid-four reflection-grid" id="reflectionCards"></div>
+
+        <article class="card">
+          <h3>Puntos que quedaron claros</h3>
+          <ul class="clean-list" id="reflectionPoints"></ul>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <button id="assistantFab" class="assistant-fab" type="button" aria-expanded="false">IA</button>
+
+  <aside id="assistantPanel" class="assistant-panel hidden" aria-label="Asistente del sitio">
+    <div class="assistant-head">
+      <div>
+        <p class="section-kicker">Asistente del sitio</p>
+        <h2>Explora el contenido</h2>
+      </div>
+      <div class="assistant-actions">
+        <button id="assistantHide" class="icon-btn" type="button" aria-label="Ocultar asistente">—</button>
+        <button id="assistantClose" class="icon-btn" type="button" aria-label="Cerrar asistente">×</button>
+      </div>
+    </div>
+
+    <p class="assistant-copy">Haz preguntas sobre el mapa, los clústeres, el mini-caso o los términos principales del sitio.</p>
+
+    <details id="assistantSuggestions" class="assistant-suggestions">
+      <summary>Preguntas sugeridas</summary>
+      <div class="prompt-grid" id="assistantPrompts"></div>
+    </details>
+
+    <div class="chat-log" id="chatLog" aria-live="polite"></div>
+
+    <form id="chatForm" class="chat-form">
+      <label class="sr-only" for="chatInput">Escribe tu pregunta</label>
+      <input id="chatInput" type="text" placeholder="Escribe tu pregunta..." />
+      <button class="btn btn-primary" type="submit">Enviar</button>
+    </form>
+  </aside>
+
+  <button id="toTopBtn" class="to-top" type="button" aria-label="Volver arriba">↑</button>
+
+  <script src="site-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

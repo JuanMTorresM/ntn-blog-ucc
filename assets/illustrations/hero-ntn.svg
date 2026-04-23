@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 620" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="820" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7DD3FC"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+    <radialGradient id="g2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(300 370) rotate(16) scale(280 180)">
+      <stop stop-color="#1D4ED8" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#1D4ED8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="820" height="620" rx="34" fill="#06111F"/>
+  <circle cx="658" cy="116" r="82" fill="#0F1E3A"/>
+  <path d="M78 450C188 356 319 305 456 305C571 305 669 332 744 377" stroke="url(#g1)" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M106 487C218 387 343 337 480 337C578 337 651 355 714 390" stroke="#38BDF8" stroke-opacity="0.55" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="188" cy="453" r="18" fill="#38BDF8"/>
+  <circle cx="272" cy="394" r="14" fill="#60A5FA"/>
+  <circle cx="402" cy="344" r="15" fill="#22D3EE"/>
+  <circle cx="561" cy="345" r="13" fill="#A78BFA"/>
+  <circle cx="698" cy="381" r="12" fill="#F472B6"/>
+  <path d="M508 180L590 140L562 240L508 180Z" fill="url(#g1)"/>
+  <rect x="528" y="168" width="66" height="24" rx="8" fill="#E0F2FE"/>
+  <path d="M561 192L542 264" stroke="#E0F2FE" stroke-width="4" stroke-linecap="round"/>
+  <path d="M612 228L694 286" stroke="#8B5CF6" stroke-width="3" stroke-dasharray="8 8"/>
+  <path d="M522 257L434 292" stroke="#38BDF8" stroke-width="3" stroke-dasharray="8 8"/>
+  <ellipse cx="276" cy="506" rx="214" ry="68" fill="url(#g2)"/>
+  <path d="M116 509C165 483 220 468 280 468C341 468 398 483 446 509" stroke="#1E3A8A" stroke-width="2"/>
+  <path d="M122 523C171 495 224 481 280 481C337 481 390 495 439 523" stroke="#1D4ED8" stroke-opacity="0.45" stroke-width="2"/>
+  <g opacity="0.9">
+    <circle cx="86" cy="82" r="2" fill="#fff"/>
+    <circle cx="112" cy="58" r="2" fill="#fff"/>
+    <circle cx="154" cy="92" r="2" fill="#fff"/>
+    <circle cx="724" cy="92" r="2" fill="#fff"/>
+    <circle cx="748" cy="144" r="2" fill="#fff"/>
+    <circle cx="690" cy="168" r="2" fill="#fff"/>
+  </g>
+  <text x="84" y="96" fill="#D7E9FF" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">NTN</text>
+  <text x="84" y="126" fill="#9FB8DA" font-family="Inter, Arial, sans-serif" font-size="16">Satélites, integración 5G/6G y operación LEO</text>
+</svg>
