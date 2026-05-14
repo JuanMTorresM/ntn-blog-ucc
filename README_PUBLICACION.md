@@ -79,3 +79,10 @@ El sitio no requiere backend, claves API, instalación de paquetes ni configurac
 ## Actualización incluida
 
 Esta versión incorpora una pestaña Tema NTN con una estructura visual más profesional, una sección institucional con logos de la Universidad Industrial de Santander y de la Escuela, y una simulación visual del mini-caso técnico que se actualiza con las variables del link budget y Doppler.
+
+## Ajustes incluidos en esta versión
+
+- La pestaña **Equipo de trabajo** incluye una franja institucional con logos normalizados de la Universidad Industrial de Santander y la Escuela E3T.
+- La pestaña **Reflexión** fue rediseñada con un recorrido visual de aprendizaje autónomo, tarjetas de colores y relación directa con ABET SO7.
+- La pestaña **Fuentes consultadas** incluye enlaces clicables: DOI para artículos académicos, enlace oficial 3GPP y documentos locales para las guías del curso.
+- El asistente local responde saludos, preguntas sobre su funcionamiento, términos del mapa, referencias, publicación en GitHub Pages y preguntas generales básicas sin depender de backend ni claves privadas.

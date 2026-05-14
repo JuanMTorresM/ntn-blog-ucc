@@ -5011,20 +5011,76 @@ window.NTN_SITE_DATA = {
     ]
   },
   "references": [
-    "[1] You X., Wang C.-X., Huang J., Gao X., Zhang Z., Wang M., Huang Y., Zhang C., Jiang Y., Wang J., Zhu M., Sheng B., Wang D., Pan Z., Zhu P., Yang Y., Liu Z., Zhang P., Tao X., Li S., Chen Z., Ma X., Chih-Lin I., Han S., Li K., Pan C., Zheng Z., Hanzo L., Shen X.S., Guo Y.J., Ding Z., Haas H., Tong W., Zhu P., Yang G., Wang J., Larsson E.G., Ngo H.Q., Hong W., Wang H., Hou D., Chen J., Chen Z., Hao Z., Li G.Y., Tafazolli R., Gao Y., Poor H.V., Fettweis G.P., Liang Y.-C., \"Towards 6G wireless communication networks: vision, enabling technologies, and new paradigm shifts,\" Science China Information Sciences, vol. 64, no. 1, Art. no. 110301, 2021, doi: 10.1007/s11432-020-2955-6.",
-    "[2] Jiang W., Han B., Habibi M.A., Schotten H.D., \"The road towards 6G: A comprehensive survey,\" IEEE Open Journal of the Communications Society, vol. 2, pp. 334-366, 2021, doi: 10.1109/OJCOMS.2021.3057679.",
-    "[3] Kodheli O., Lagunas E., Maturo N., Sharma S.K., Shankar B., Montoya J.F.M., Duncan J.C.M., Spano D., Chatzinotas S., Kisseleff S., Querol J., Lei L., Vu T.X., Goussetis G., \"Satellite Communications in the New Space Era: A Survey and Future Challenges,\" IEEE Communications Surveys and Tutorials, vol. 23, no. 1, pp. 70-109, 2021, doi: 10.1109/COMST.2020.3028247.",
-    "[4] Ghosh A., Maeder A., Baker M., Chandramouli D., \"5G Evolution: A View on 5G Cellular Technology beyond 3GPP Release 15,\" IEEE Access, vol. 7, pp. 127639-127651, 2019, doi: 10.1109/ACCESS.2019.2939938.",
-    "[5] Giordani M., Zorzi M., \"Non-Terrestrial Networks in the 6G Era: Challenges and Opportunities,\" IEEE Network, vol. 35, no. 2, pp. 244-251, 2021, doi: 10.1109/MNET.011.2000493.",
-    "[6] Vaezi M., Azari A., Khosravirad S.R., Shirvanimoghaddam M., Azari M.M., Chasaki D., Popovski P., \"Cellular, Wide-Area, and Non-Terrestrial IoT: A Survey on 5G Advances and the Road Toward 6G,\" IEEE Communications Surveys and Tutorials, vol. 24, no. 2, pp. 1117-1174, 2022, doi: 10.1109/COMST.2022.3151028.",
-    "[7] Azari M.M., Solanki S., Chatzinotas S., Kodheli O., Sallouha H., Colpaert A., Mendoza Montoya J.F., Pollin S., Haqiqatnejad A., Mostaani A., Lagunas E., Ottersten B., \"Evolution of Non-Terrestrial Networks from 5G to 6G: A Survey,\" IEEE Communications Surveys and Tutorials, vol. 24, no. 4, pp. 2633-2672, 2022, doi: 10.1109/COMST.2022.3199901.",
-    "[8] Geraci G., Garcia-Rodriguez A., Azari M.M., Lozano A., Mezzavilla M., Chatzinotas S., Chen Y., Rangan S., Renzo M.D., \"What Will the Future of UAV Cellular Communications Be? A Flight from 5G to 6G,\" IEEE Communications Surveys and Tutorials, vol. 24, no. 3, pp. 1304-1335, 2022, doi: 10.1109/COMST.2022.3171135.",
-    "[9] Rinaldi F., Määttänen H.-L., Torsner J., Pizzi S., Andreev S., Iera A., Koucheryavy Y., Araniti G., \"Non-terrestrial networks in 5G & beyond: A survey,\" IEEE Access, vol. 8, pp. 165178-165200, 2020, doi: 10.1109/ACCESS.2020.3022981.",
-    "[10] 3GPP, \"Non-Terrestrial Networks (NTN),\" 3GPP Technologies, consultado en 2026.",
-    "[11] N. J. van Eck and L. Waltman, \"Software survey: VOSviewer, a computer program for bibliometric mapping,\" Scientometrics, vol. 84, no. 2, pp. 523-538, 2010, doi: 10.1007/s11192-009-0146-3.",
-    "[12] R. Zamora Musa, \"Reto ABET Comunicaciones II (27145),\" guía de trabajo SO7, 2026.",
-    "[13] R. Zamora Musa, \"Anexo A: Análisis de sistemas de datos con VOSviewer,\" guía de laboratorio, 2025.",
-    "[14] R. Zamora Musa, \"Anexo B: Presentación en Blog,\" guía BlogDPC, 2025."
+    {
+      "text": "[1] You X., Wang C.-X., Huang J., Gao X., Zhang Z., Wang M., Huang Y., Zhang C., Jiang Y., Wang J., Zhu M., Sheng B., Wang D., Pan Z., Zhu P., Yang Y., Liu Z., Zhang P., Tao X., Li S., Chen Z., Ma X., Chih-Lin I., Han S., Li K., Pan C., Zheng Z., Hanzo L., Shen X.S., Guo Y.J., Ding Z., Haas H., Tong W., Zhu P., Yang G., Wang J., Larsson E.G., Ngo H.Q., Hong W., Wang H., Hou D., Chen J., Chen Z., Hao Z., Li G.Y., Tafazolli R., Gao Y., Poor H.V., Fettweis G.P., Liang Y.-C., \"Towards 6G wireless communication networks: vision, enabling technologies, and new paradigm shifts,\" Science China Information Sciences, vol. 64, no. 1, Art. no. 110301, 2021, doi: 10.1007/s11432-020-2955-6.",
+      "url": "https://doi.org/10.1007/s11432-020-2955-6",
+      "label": "Abrir DOI"
+    },
+    {
+      "text": "[2] Jiang W., Han B., Habibi M.A., Schotten H.D., \"The road towards 6G: A comprehensive survey,\" IEEE Open Journal of the Communications Society, vol. 2, pp. 334-366, 2021, doi: 10.1109/OJCOMS.2021.3057679.",
+      "url": "https://doi.org/10.1109/OJCOMS.2021.3057679",
+      "label": "Abrir DOI"
+    },
+    {
+      "text": "[3] Kodheli O., Lagunas E., Maturo N., Sharma S.K., Shankar B., Montoya J.F.M., Duncan J.C.M., Spano D., Chatzinotas S., Kisseleff S., Querol J., Lei L., Vu T.X., Goussetis G., \"Satellite Communications in the New Space Era: A Survey and Future Challenges,\" IEEE Communications Surveys and Tutorials, vol. 23, no. 1, pp. 70-109, 2021, doi: 10.1109/COMST.2020.3028247.",
+      "url": "https://doi.org/10.1109/COMST.2020.3028247",
+      "label": "Abrir DOI"
+    },
+    {
+      "text": "[4] Ghosh A., Maeder A., Baker M., Chandramouli D., \"5G Evolution: A View on 5G Cellular Technology beyond 3GPP Release 15,\" IEEE Access, vol. 7, pp. 127639-127651, 2019, doi: 10.1109/ACCESS.2019.2939938.",
+      "url": "https://doi.org/10.1109/ACCESS.2019.2939938",
+      "label": "Abrir DOI"
+    },
+    {
+      "text": "[5] Giordani M., Zorzi M., \"Non-Terrestrial Networks in the 6G Era: Challenges and Opportunities,\" IEEE Network, vol. 35, no. 2, pp. 244-251, 2021, doi: 10.1109/MNET.011.2000493.",
+      "url": "https://doi.org/10.1109/MNET.011.2000493",
+      "label": "Abrir DOI"
+    },
+    {
+      "text": "[6] Vaezi M., Azari A., Khosravirad S.R., Shirvanimoghaddam M., Azari M.M., Chasaki D., Popovski P., \"Cellular, Wide-Area, and Non-Terrestrial IoT: A Survey on 5G Advances and the Road Toward 6G,\" IEEE Communications Surveys and Tutorials, vol. 24, no. 2, pp. 1117-1174, 2022, doi: 10.1109/COMST.2022.3151028.",
+      "url": "https://doi.org/10.1109/COMST.2022.3151028",
+      "label": "Abrir DOI"
+    },
+    {
+      "text": "[7] Azari M.M., Solanki S., Chatzinotas S., Kodheli O., Sallouha H., Colpaert A., Mendoza Montoya J.F., Pollin S., Haqiqatnejad A., Mostaani A., Lagunas E., Ottersten B., \"Evolution of Non-Terrestrial Networks from 5G to 6G: A Survey,\" IEEE Communications Surveys and Tutorials, vol. 24, no. 4, pp. 2633-2672, 2022, doi: 10.1109/COMST.2022.3199901.",
+      "url": "https://doi.org/10.1109/COMST.2022.3199901",
+      "label": "Abrir DOI"
+    },
+    {
+      "text": "[8] Geraci G., Garcia-Rodriguez A., Azari M.M., Lozano A., Mezzavilla M., Chatzinotas S., Chen Y., Rangan S., Renzo M.D., \"What Will the Future of UAV Cellular Communications Be? A Flight from 5G to 6G,\" IEEE Communications Surveys and Tutorials, vol. 24, no. 3, pp. 1304-1335, 2022, doi: 10.1109/COMST.2022.3171135.",
+      "url": "https://doi.org/10.1109/COMST.2022.3171135",
+      "label": "Abrir DOI"
+    },
+    {
+      "text": "[9] Rinaldi F., Määttänen H.-L., Torsner J., Pizzi S., Andreev S., Iera A., Koucheryavy Y., Araniti G., \"Non-terrestrial networks in 5G & beyond: A survey,\" IEEE Access, vol. 8, pp. 165178-165200, 2020, doi: 10.1109/ACCESS.2020.3022981.",
+      "url": "https://doi.org/10.1109/ACCESS.2020.3022981",
+      "label": "Abrir DOI"
+    },
+    {
+      "text": "[10] 3GPP, \"Non-Terrestrial Networks (NTN),\" 3GPP Technologies, consultado en 2026.",
+      "url": "https://www.3gpp.org/technologies/ntn-overview",
+      "label": "Abrir 3GPP"
+    },
+    {
+      "text": "[11] N. J. van Eck and L. Waltman, \"Software survey: VOSviewer, a computer program for bibliometric mapping,\" Scientometrics, vol. 84, no. 2, pp. 523-538, 2010, doi: 10.1007/s11192-009-0146-3.",
+      "url": "https://doi.org/10.1007/s11192-009-0146-3",
+      "label": "Abrir DOI"
+    },
+    {
+      "text": "[12] R. Zamora Musa, \"Reto ABET Comunicaciones II (27145),\" guía de trabajo SO7, 2026.",
+      "url": "assets/docs/reto-abet-so7.pdf",
+      "label": "Abrir documento"
+    },
+    {
+      "text": "[13] R. Zamora Musa, \"Anexo A: Análisis de sistemas de datos con VOSviewer,\" guía de laboratorio, 2025.",
+      "url": "assets/docs/anexo-a-vosviewer.pdf",
+      "label": "Abrir documento"
+    },
+    {
+      "text": "[14] R. Zamora Musa, \"Anexo B: Presentación en Blog,\" guía BlogDPC, 2025.",
+      "url": "assets/docs/anexo-b-blogdpc.pdf",
+      "label": "Abrir documento"
+    }
   ],
   "sourceArticles": [
     {
@@ -5034,7 +5090,8 @@ window.NTN_SITE_DATA = {
       "source": "Science China Information Sciences",
       "doi": "10.1007/s11432-020-2955-6",
       "citedBy": 1951,
-      "type": "Review"
+      "type": "Review",
+      "url": "https://doi.org/10.1007/s11432-020-2955-6"
     },
     {
       "title": "The road towards 6G: A comprehensive survey",
@@ -5043,7 +5100,8 @@ window.NTN_SITE_DATA = {
       "source": "IEEE Open Journal of the Communications Society",
       "doi": "10.1109/OJCOMS.2021.3057679",
       "citedBy": 1547,
-      "type": "Review"
+      "type": "Review",
+      "url": "https://doi.org/10.1109/OJCOMS.2021.3057679"
     },
     {
       "title": "Satellite Communications in the New Space Era: A Survey and Future Challenges",
@@ -5052,7 +5110,8 @@ window.NTN_SITE_DATA = {
       "source": "IEEE Communications Surveys and Tutorials",
       "doi": "10.1109/COMST.2020.3028247",
       "citedBy": 1202,
-      "type": "Review"
+      "type": "Review",
+      "url": "https://doi.org/10.1109/COMST.2020.3028247"
     },
     {
       "title": "5G Evolution: A View on 5G Cellular Technology beyond 3GPP Release 15",
@@ -5061,7 +5120,8 @@ window.NTN_SITE_DATA = {
       "source": "IEEE Access",
       "doi": "10.1109/ACCESS.2019.2939938",
       "citedBy": 780,
-      "type": "Article"
+      "type": "Article",
+      "url": "https://doi.org/10.1109/ACCESS.2019.2939938"
     },
     {
       "title": "Non-Terrestrial Networks in the 6G Era: Challenges and Opportunities",
@@ -5070,7 +5130,8 @@ window.NTN_SITE_DATA = {
       "source": "IEEE Network",
       "doi": "10.1109/MNET.011.2000493",
       "citedBy": 603,
-      "type": "Article"
+      "type": "Article",
+      "url": "https://doi.org/10.1109/MNET.011.2000493"
     },
     {
       "title": "Cellular, Wide-Area, and Non-Terrestrial IoT: A Survey on 5G Advances and the Road Toward 6G",
@@ -5079,7 +5140,8 @@ window.NTN_SITE_DATA = {
       "source": "IEEE Communications Surveys and Tutorials",
       "doi": "10.1109/COMST.2022.3151028",
       "citedBy": 581,
-      "type": "Article"
+      "type": "Article",
+      "url": "https://doi.org/10.1109/COMST.2022.3151028"
     },
     {
       "title": "Evolution of Non-Terrestrial Networks from 5G to 6G: A Survey",
@@ -5088,7 +5150,8 @@ window.NTN_SITE_DATA = {
       "source": "IEEE Communications Surveys and Tutorials",
       "doi": "10.1109/COMST.2022.3199901",
       "citedBy": 547,
-      "type": "Article"
+      "type": "Article",
+      "url": "https://doi.org/10.1109/COMST.2022.3199901"
     },
     {
       "title": "What Will the Future of UAV Cellular Communications Be? A Flight from 5G to 6G",
@@ -5097,7 +5160,8 @@ window.NTN_SITE_DATA = {
       "source": "IEEE Communications Surveys and Tutorials",
       "doi": "10.1109/COMST.2022.3171135",
       "citedBy": 443,
-      "type": "Article"
+      "type": "Article",
+      "url": "https://doi.org/10.1109/COMST.2022.3171135"
     }
   ],
   "glossary": {
@@ -5111,13 +5175,13 @@ window.NTN_SITE_DATA = {
   "assistant": {
     "quickQuestions": [
       "Hola",
-      "¿Qué es NTN?",
+      "¿Eres un asistente de IA?",
       "¿Qué es LEO y cuántas ocurrencias tiene?",
       "¿Qué conexiones tiene satellite?",
-      "¿Qué significa Doppler?",
-      "Muéstrame las palabras principales",
-      "¿Cómo funciona el mini-caso?",
-      "¿Quiénes integran el equipo?"
+      "¿Cómo se publica en GitHub Pages?",
+      "¿Cómo funcionan las referencias IEEE?",
+      "Hazme un resumen del proyecto",
+      "¿Cómo cambia el mini-caso si modifico variables?"
     ],
     "fallback": "No encontré una coincidencia directa dentro del proyecto. Aun así puedo orientarte de forma general y aclarar cuando algo no pertenece a la información analizada.",
     "knowledge": [
@@ -5210,6 +5274,38 @@ window.NTN_SITE_DATA = {
         ],
         "title": "Fuentes",
         "text": "Las fuentes consultadas incluyen artículos de Scopus sobre NTN, 5G/6G, redes satelitales, VOSviewer, y las guías del Reto ABET SO7, Anexo A y Anexo B."
+      },
+      {
+        "tags": [
+          "referencias",
+          "ieee",
+          "doi",
+          "fuentes",
+          "enlaces"
+        ],
+        "title": "Referencias con enlaces",
+        "text": "La sección de fuentes usa formato IEEE y agrega enlaces directos: los artículos académicos abren con DOI, la referencia 3GPP abre en su página oficial y las guías del curso se abren como documentos locales del sitio."
+      },
+      {
+        "tags": [
+          "asistente",
+          "ia",
+          "local",
+          "inteligencia artificial"
+        ],
+        "title": "Asistente IA local",
+        "text": "El asistente está diseñado para funcionar sin backend ni claves privadas. Usa la información incluida en la página, términos del mapa y reglas de búsqueda para responder sobre el proyecto y orientar preguntas generales."
+      },
+      {
+        "tags": [
+          "universidad",
+          "uis",
+          "escuela",
+          "facultad",
+          "equipo"
+        ],
+        "title": "Identidad institucional",
+        "text": "El trabajo fue desarrollado por estudiantes de Ingeniería Electrónica de la Universidad Industrial de Santander, vinculados a la Facultad de Ingenierías Físico-Mecánicas y la Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones."
       }
     ]
   }

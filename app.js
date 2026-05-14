@@ -244,20 +244,26 @@
   function renderTeam() {
     qs('#equipo').innerHTML = `
       ${sectionHead('Equipo de trabajo', 'Trabajo académico desarrollado por estudiantes de Ingeniería Electrónica en el marco de Comunicaciones II y el Reto ABET SO7.')}
-      <div class="institution-card">
-        <div class="institution-logos">
-          <img src="assets/images/institutional/uis-logo.png" alt="Logo Universidad Industrial de Santander" loading="lazy">
-          <img src="assets/images/institutional/e3t-logo.png" alt="Logo Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones" loading="lazy">
+      <div class="institution-band">
+        <div class="institution-mark-row" aria-label="Identidad institucional">
+          <figure class="institution-logo-tile">
+            <img src="assets/images/institutional/uis-logo.png" alt="Logo Universidad Industrial de Santander" loading="lazy">
+            <figcaption>Universidad Industrial de Santander</figcaption>
+          </figure>
+          <figure class="institution-logo-tile">
+            <img src="assets/images/institutional/e3t-logo.png" alt="Logo Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones" loading="lazy">
+            <figcaption>Escuela E3T</figcaption>
+          </figure>
         </div>
-        <div class="institution-copy">
+        <div class="institution-text-panel">
           <span class="kicker">Universidad Industrial de Santander</span>
           <h3>Facultad de Ingenierías Físico-Mecánicas</h3>
-          <p>Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones. Este BlogDPC presenta una revisión bibliométrica y una aplicación técnica sobre Non-Terrestrial Networks para evidenciar aprendizaje autónomo, análisis y transferencia de conocimiento.</p>
-          <div class="tag-row">
-            <span class="tag">Comunicaciones II</span>
-            <span class="tag">Reto ABET SO7</span>
-            <span class="tag">Ingeniería Electrónica</span>
-            <span class="tag">NTN</span>
+          <p>Este BlogDPC fue desarrollado desde la Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones como evidencia del Reto ABET SO7 en Comunicaciones II. El propósito es presentar una revisión bibliométrica y una aplicación técnica sobre Non-Terrestrial Networks con rigor académico, claridad y transferencia al diseño de enlaces.</p>
+          <div class="institution-mini-grid">
+            <span><strong>Asignatura</strong>Comunicaciones II</span>
+            <span><strong>Resultado</strong>ABET SO7</span>
+            <span><strong>Programa</strong>Ingeniería Electrónica</span>
+            <span><strong>Tema</strong>NTN</span>
           </div>
         </div>
       </div>
@@ -783,29 +789,70 @@
   }
 
   function renderReflection() {
+    const path = [
+      ['01', 'Explorar', 'Partimos de una cadena de búsqueda NTN y de fuentes académicas para delimitar el tema sin quedarnos solo con una definición general.'],
+      ['02', 'Depurar', 'Separar términos útiles de ruido bibliométrico nos obligó a justificar decisiones y a entender qué conceptos aportaban realmente al análisis.'],
+      ['03', 'Interpretar', 'Los clústeres permitieron leer el mapa como una red de relaciones técnicas: cobertura, satélites, canal, recursos, movilidad y calidad de servicio.'],
+      ['04', 'Aplicar', 'El mini-caso de enlace LEO aterrizó la revisión a variables de ingeniería como pérdidas, potencia recibida, margen y Doppler.']
+    ];
     qs('#reflexion').innerHTML = `
-      ${sectionHead('Reflexión metacognitiva SO7', 'Esta sección explica cómo el equipo adquirió, filtró, organizó y aplicó nuevo conocimiento sobre NTN.')}
-      <div class="reflection-grid">
-        <article class="quote-card">
-          <h3>¿Qué aprendimos?</h3>
-          <p>Aprendimos que NTN no se limita a conectar satélites. Es una integración compleja entre cobertura, movilidad, arquitectura de red, capa física y gestión de recursos. El mapa bibliométrico ayudó a ver que los términos fuertes no están aislados: forman relaciones que orientan el diseño técnico.</p>
+      ${sectionHead('Reflexión metacognitiva SO7', 'Esta sección muestra cómo el equipo aprendió, filtró, organizó y aplicó nuevo conocimiento sobre NTN.')}
+      <div class="reflection-hero">
+        <div>
+          <span class="kicker">Aprendizaje autónomo aplicado</span>
+          <h3>De leer artículos a tomar decisiones de ingeniería</h3>
+          <p>El reto no consistió únicamente en describir NTN. El aprendizaje central fue convertir una revisión bibliométrica en una lectura técnica útil: identificar conceptos fuertes, interpretar relaciones y comprobar cómo esas ideas influyen en un enlace LEO hacia un gateway urbano.</p>
+        </div>
+        <div class="reflection-orbit" aria-hidden="true">
+          <span>SO7</span>
+          <i></i><i></i><i></i>
+        </div>
+      </div>
+
+      <div class="learning-path">
+        ${path.map(([num, title, body]) => `
+          <article class="learning-step">
+            <strong>${esc(num)}</strong>
+            <h3>${esc(title)}</h3>
+            <p>${esc(body)}</p>
+          </article>
+        `).join('')}
+      </div>
+
+      <div class="reflection-mosaic">
+        <article class="reflection-card accent-cyan">
+          <span>Lo aprendido</span>
+          <h3>NTN es integración, no solo satélites</h3>
+          <p>Comprendimos que una red no terrestre combina plataformas espaciales o aéreas con infraestructura terrestre, gestión de movilidad, calidad de servicio y condiciones variables del canal.</p>
         </article>
-        <article class="quote-card">
-          <h3>Estrategias que funcionaron</h3>
-          <p>Funcionó partir de una cadena de búsqueda clara, depurar términos repetidos, leer los clústeres por significado técnico y escoger palabras que conectaran el análisis con el mini-caso. Esto evitó que el trabajo fuera solo una lista de artículos.</p>
+        <article class="reflection-card accent-green">
+          <span>Estrategia útil</span>
+          <h3>Leer el mapa por relaciones</h3>
+          <p>El mapa VOSviewer fue más claro cuando no miramos términos aislados, sino conexiones: qué palabras aparecen juntas, qué clúster forman y qué problema técnico representan.</p>
         </article>
-        <article class="quote-card">
-          <h3>Dificultades encontradas</h3>
-          <p>La principal dificultad fue diferenciar palabras generales de conceptos realmente útiles. También fue necesario conectar resultados bibliométricos, como fuerza de asociación y clústeres, con variables de ingeniería como pérdidas, margen, Doppler y continuidad de servicio.</p>
+        <article class="reflection-card accent-amber">
+          <span>Dificultad</span>
+          <h3>Distinguir ruido de conceptos fuertes</h3>
+          <p>Algunas palabras eran frecuentes pero demasiado generales. La depuración ayudó a seleccionar términos con valor técnico para explicar cobertura, Doppler, handover, canal y recursos.</p>
         </article>
-        <article class="quote-card">
-          <h3>Aporte a la formación</h3>
-          <p>Como estudiantes de Ingeniería Electrónica, el ejercicio fortaleció la capacidad de aprender una tendencia tecnológica nueva, verificar fuentes, sintetizar relaciones y aplicar ese aprendizaje en una decisión técnica replicable.</p>
+        <article class="reflection-card accent-purple">
+          <span>Transferencia</span>
+          <h3>Del análisis al mini-caso</h3>
+          <p>La calculadora de link budget mostró que modificar frecuencia, altura, ganancias o pérdidas cambia el margen del enlace y, por tanto, la decisión técnica del sistema.</p>
         </article>
       </div>
-      <div class="panel-card">
-        <h3>Relación entre bibliometría, mini-caso y SO7</h3>
-        <p>La bibliometría permitió identificar conceptos dominantes; el mini-caso permitió aplicar esos conceptos; y la reflexión permitió reconocer cómo se aprendió. De esta manera, el blog evidencia selección autónoma de información, análisis y síntesis, transferencia del conocimiento, planificación y rigor académico.</p>
+
+      <div class="so7-panel">
+        <div>
+          <h3>Relación directa con ABET SO7</h3>
+          <p>La bibliometría evidencia selección autónoma y síntesis; el mini-caso evidencia aplicación del conocimiento; y esta reflexión evidencia cómo evaluamos estrategias, dificultades y próximos pasos de aprendizaje.</p>
+        </div>
+        <div class="so7-badge-row">
+          <span>ID1 Información</span>
+          <span>ID2 Síntesis</span>
+          <span>ID3 Aplicación</span>
+          <span>ID5 Rigor</span>
+        </div>
       </div>
     `;
   }
@@ -816,16 +863,23 @@
       <div class="panel-card">
         <h3>Artículos destacados de la revisión</h3>
         <table class="article-table">
-          <thead><tr><th>Año</th><th>Título</th><th>Fuente</th><th>Citas</th></tr></thead>
+          <thead><tr><th>Año</th><th>Título</th><th>Fuente</th><th>Citas</th><th>Enlace</th></tr></thead>
           <tbody>
-            ${data.sourceArticles.map(a => `<tr><td>${esc(a.year)}</td><td>${esc(a.title)}</td><td>${esc(a.source)}</td><td>${fmt.format(a.citedBy)}</td></tr>`).join('')}
+            ${data.sourceArticles.map(a => {
+              const url = a.url || (a.doi ? `https://doi.org/${a.doi}` : '');
+              return `<tr><td>${esc(a.year)}</td><td>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(a.title)}</a>` : esc(a.title)}</td><td>${esc(a.source)}</td><td>${fmt.format(a.citedBy)}</td><td>${url ? `<a class="source-link" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Abrir</a>` : '—'}</td></tr>`;
+            }).join('')}
           </tbody>
         </table>
       </div>
       <div class="panel-card">
-        <h3>Referencias IEEE</h3>
+        <h3>Referencias IEEE con enlaces</h3>
+        <p class="reference-note">Las referencias académicas abren mediante DOI cuando está disponible. Las guías del curso se incluyen como documentos locales del sitio para que también se puedan consultar desde GitHub Pages.</p>
         <div class="references">
-          ${data.references.map(ref => `<div class="reference-item">${esc(ref)}</div>`).join('')}
+          ${data.references.map(ref => {
+            const item = typeof ref === 'string' ? { text: ref, url: doiUrlFromText(ref), label: 'Abrir referencia' } : ref;
+            return `<article class="reference-item"><p>${esc(item.text || '')}</p>${item.url ? `<a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.label || 'Abrir referencia')}</a>` : ''}</article>`;
+          }).join('')}
         </div>
       </div>
       <div class="card-grid two">
@@ -853,6 +907,11 @@
       </div>
     `;
     bindSourcesEvents();
+  }
+
+  function doiUrlFromText(text) {
+    const match = String(text || '').match(/doi:\s*([^.,;\s]+\/[A-Za-z0-9._;()/:+-]+)/i);
+    return match ? `https://doi.org/${match[1].replace(/\.$/, '')}` : '';
   }
 
   function bindSourcesEvents() {
@@ -958,6 +1017,9 @@
     const conversational = answerConversation(q);
     if (conversational) return conversational;
 
+    const mathAnswer = answerSimpleMath(q);
+    if (mathAnswer) return mathAnswer;
+
     const termOverview = answerTermOverview(q);
     if (termOverview) return termOverview;
 
@@ -980,22 +1042,25 @@
       return `<strong>${esc(best.title)}</strong><br>${esc(best.text)}${related.length ? `<br><br><small>También puedes revisar: ${related.map(esc).join(', ')}.</small>` : ''}`;
     }
 
+    const general = answerGeneralQuestion(q, original);
+    if (general) return general;
+
     return answerOpenQuestion(original);
   }
 
   function answerConversation(q) {
-    const greetings = ['hola', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches', 'hey', 'que tal', 'saludos'];
+    const greetings = ['hola', 'buenas', 'buenos dias', 'buenas tardes', 'buenas noches', 'hey', 'que tal', 'saludos', 'ola'];
     if (greetings.some(g => q === g || q.startsWith(`${g} `))) {
-      return '¡Hola! Soy el asistente del proyecto NTN. Te puedo ayudar a entender la página, el mapa VOSviewer, los clústeres, las palabras del análisis, el mini-caso de link budget con Doppler, el equipo y las fuentes consultadas. También puedo orientarte si haces una pregunta general; cuando algo no esté dentro del proyecto, te lo diré claramente.';
+      return '¡Hola! Soy el asistente IA local de este BlogDPC sobre NTN. Puedo ayudarte a recorrer la página, explicar términos del mapa como LEO, Doppler, satellite o handover, interpretar el mini-caso, revisar fuentes y también orientarte con preguntas generales. Si algo no está dentro del proyecto, te lo diré al final para no inventar evidencias.';
     }
-    if (/(gracias|muchas gracias|te agradezco|perfecto|listo)/.test(q)) {
-      return '¡Con gusto! Cuando quieras, puedes preguntarme por una palabra del mapa, por ejemplo LEO, Doppler, satellite, handover, QoS, coverage o 5G NR.';
+    if (/(gracias|muchas gracias|te agradezco|perfecto|listo|excelente)/.test(q)) {
+      return '¡Con gusto! Me alegra ayudarte. Puedes preguntarme por una palabra del mapa, por ejemplo LEO, Doppler shift, satellite, handover, QoS, coverage o 5G NR; también puedes pedirme un resumen del proyecto o una explicación del mini-caso.';
     }
-    if (/(quien eres|que eres|como funcionas|que puedes hacer|ayuda|ayudame)/.test(q)) {
-      return 'Soy un asistente local integrado en esta página. No uso claves privadas ni backend: busco dentro de la base del proyecto, comparo palabras clave y preparo respuestas con los datos del mapa, las pestañas y el mini-caso. También respondo saludos y preguntas generales, pero marco con honestidad cuando algo no hace parte de la información revisada.';
+    if (/(eres ia|eres inteligencia artificial|eres un asistente|que eres|quien eres|quién eres|como funcionas|cómo funcionas|que puedes hacer|qué puedes hacer|ayuda|ayudame|ayúdame)/.test(q)) {
+      return '<strong>Sí: soy un asistente IA local integrado en la página.</strong><br>No soy un chat conectado a internet ni uso una clave privada en el navegador. Trabajo con una base de conocimiento incluida en el sitio, términos del mapa, datos del mini-caso y reglas de recuperación por palabras clave. Eso me permite responder con naturalidad sobre el proyecto y orientar preguntas generales, pero cuando una respuesta no esté sustentada por la información del BlogDPC lo aclararé con honestidad.';
     }
-    if (/(adios|chao|hasta luego|nos vemos)/.test(q)) {
-      return '¡Hasta luego! Te recomiendo volver al mapa o al mini-caso si quieres repasar la parte más técnica del proyecto NTN.';
+    if (/(adios|adiós|chao|hasta luego|nos vemos)/.test(q)) {
+      return '¡Hasta luego! Para repasar rápido, te recomiendo volver al mapa interactivo o al mini-caso técnico: son las partes que mejor conectan bibliometría con ingeniería.';
     }
     return null;
   }
@@ -1152,9 +1217,59 @@
     return 'El término ayuda a explicar una línea de investigación dentro de NTN y su fuerza de enlace indica qué tan conectado está con otros conceptos del mapa.';
   }
 
+  function answerSimpleMath(q) {
+    const expr = q.replace(/,/g, '.').trim();
+    if (!/^[0-9+\-*/().\s]+$/.test(expr) || !/[+\-*/]/.test(expr)) return null;
+    try {
+      const value = Function(`"use strict"; return (${expr})`)();
+      if (!Number.isFinite(value)) return null;
+      return `<strong>Resultado:</strong> ${esc(expr)} = <strong>${fmt.format(Number(value.toFixed(6)))}</strong><br><br><small>Esta operación no hace parte del análisis NTN, pero puedo resolver cálculos simples dentro del asistente local.</small>`;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function answerGeneralQuestion(q, original) {
+    const generalCards = [
+      {
+        tests: [/github pages|publicar|subir.*github|repositorio/],
+        title: 'Publicación en GitHub Pages',
+        text: 'Para publicar este sitio, sube la carpeta del proyecto a un repositorio, verifica que index.html esté en la raíz y activa GitHub Pages desde Settings > Pages usando la rama principal. Como el sitio es estático, no requiere backend ni instalación adicional.'
+      },
+      {
+        tests: [/referencia|referencias|ieee|citar|citas|doi|enlace|links/],
+        title: 'Referencias y enlaces',
+        text: 'Las fuentes del sitio están organizadas en formato IEEE. Las referencias con DOI abren desde doi.org y las guías del curso se enlazan como documentos locales para que puedan consultarse desde la misma publicación.'
+      },
+      {
+        tests: [/resumen|resume|explicame la pagina|explícame la página|de que trata|de qué trata/],
+        title: 'Resumen del proyecto',
+        text: 'La página presenta una revisión académica sobre Non-Terrestrial Networks. Primero explica el tema NTN, luego muestra el análisis bibliométrico con VOSviewer, interpreta clústeres y palabras clave, aplica un mini-caso de link budget con Doppler y cierra con reflexión metacognitiva del Reto ABET SO7.'
+      },
+      {
+        tests: [/universidad|uis|escuela|facultad|e3t/],
+        title: 'Contexto institucional',
+        text: 'El proyecto corresponde a estudiantes de Ingeniería Electrónica de la Universidad Industrial de Santander, en la Facultad de Ingenierías Físico-Mecánicas y la Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones.'
+      },
+      {
+        tests: [/como estudio|cómo estudio|aprender|estrategia|metacognicion|metacognición/],
+        title: 'Estrategia de aprendizaje',
+        text: 'Una forma efectiva de estudiar un tema nuevo es delimitar una pregunta guía, buscar fuentes confiables, extraer conceptos principales, organizar relaciones, aplicar el conocimiento en un caso pequeño y reflexionar sobre qué funcionó y qué faltó mejorar.'
+      },
+      {
+        tests: [/dbm|decibel|db\b|ganancia|perdida|pérdida|potencia|frecuencia|umbral/],
+        title: 'Variables de enlace',
+        text: 'En comunicaciones, potencia, ganancia y pérdidas suelen expresarse en dB o dBm para facilitar sumas y restas del presupuesto de enlace. En el mini-caso, esas variables cambian la potencia recibida y el margen frente al umbral requerido.'
+      }
+    ];
+    const card = generalCards.find(c => c.tests.some(rx => rx.test(q)));
+    if (!card) return null;
+    return `<strong>${esc(card.title)}</strong><br>${esc(card.text)}<br><br><small>Nota: esta respuesta se ofrece como orientación del asistente. Cuando aplica directamente al proyecto, se conecta con las pestañas del BlogDPC; cuando es una duda externa, debe verificarse con fuentes adicionales.</small>`;
+  }
+
   function answerOpenQuestion(original) {
     const clean = esc(original);
-    return `<strong>Te respondo con honestidad</strong><br>No encontré una coincidencia directa para “${clean}” dentro de la base del proyecto. Aun así, no voy a cortar la conversación: si la pregunta es general, la mejor respuesta es revisar el concepto central, buscar una fuente confiable y conectarlo con el objetivo del trabajo si aporta a NTN.<br><br><strong>Conclusión:</strong> esa información no fue un aspecto incluido en el análisis del sitio. Puedo ayudarte mejor si la relacionas con NTN, LEO, Doppler, 5G/6G, VOSviewer, clústeres, link budget, el equipo o las fuentes consultadas.`;
+    return `<strong>Respuesta abierta</strong><br>Puedo orientarte, pero no encontré una coincidencia directa para “${clean}” dentro de la base del proyecto. En una entrega académica conviene tratar esa pregunta como información externa: responderla con una fuente verificable y luego decidir si aporta o no al análisis NTN.<br><br><strong>Conclusión:</strong> esa pregunta no fue un aspecto desarrollado dentro del BlogDPC. Para mantener rigor, no la presentaría como evidencia del mapa, los clústeres o el mini-caso, aunque sí puedo ayudarte a conectarla si la relacionas con comunicaciones digitales, satélites, 5G/6G, link budget o aprendizaje autónomo.`;
   }
 
   const STOP_WORDS = new Set(['que', 'qué', 'cual', 'cuál', 'como', 'cómo', 'dime', 'explica', 'explicame', 'explícame', 'sobre', 'del', 'de', 'la', 'el', 'los', 'las', 'un', 'una', 'por', 'para', 'con', 'tiene', 'tienen', 'significa', 'es']);
