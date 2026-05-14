@@ -1,0 +1,80 @@
+<svg width="920" height="620" viewBox="0 0 920 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="40" x2="760" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67A6FF" stop-opacity="0.45"/>
+      <stop offset="0.45" stop-color="#36D7B7" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="211" y1="258" x2="726" y2="388" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7EE7FF"/>
+      <stop offset="1" stop-color="#67A6FF"/>
+    </linearGradient>
+    <linearGradient id="orbit" x1="210" y1="136" x2="690" y2="476" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#36D7B7" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#67A6FF" stop-opacity="0.35"/>
+    </linearGradient>
+    <filter id="blurGlow" x="0" y="0" width="920" height="620" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="32"/>
+    </filter>
+  </defs>
+  <rect width="920" height="620" rx="36" fill="#09111F"/>
+  <g filter="url(#blurGlow)">
+    <circle cx="180" cy="150" r="90" fill="#36D7B7" fill-opacity="0.12"/>
+    <circle cx="720" cy="120" r="120" fill="#67A6FF" fill-opacity="0.16"/>
+    <circle cx="640" cy="440" r="120" fill="#8B5CF6" fill-opacity="0.12"/>
+  </g>
+  <rect x="28" y="28" width="864" height="564" rx="28" stroke="rgba(255,255,255,0.08)"/>
+  <path d="M210 362C210 273.634 281.634 202 370 202H550C638.366 202 710 273.634 710 362V416C710 504.366 638.366 576 550 576H370C281.634 576 210 504.366 210 416V362Z" fill="url(#bg)" fill-opacity="0.12" stroke="rgba(255,255,255,0.10)"/>
+  <circle cx="460" cy="365" r="126" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.10)"/>
+  <path d="M332 420C368 392 413 376 462 376C511 376 556 392 592 420" stroke="rgba(255,255,255,0.42)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M333 419C366 311 406 257 462 257C518 257 558 311 591 419" stroke="url(#accent)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M253 296C328 208 431 162 545 170C621 175 687 209 739 266" stroke="url(#orbit)" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 10"/>
+  <path d="M241 444C318 519 411 557 519 551C604 546 681 509 740 446" stroke="url(#orbit)" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="7 10" opacity="0.75"/>
+  <g>
+    <rect x="157" y="205" width="54" height="20" rx="6" fill="#0E1B31" stroke="rgba(255,255,255,0.12)"/>
+    <rect x="149" y="196" width="18" height="38" rx="5" fill="#67A6FF" fill-opacity="0.82"/>
+    <rect x="201" y="196" width="18" height="38" rx="5" fill="#67A6FF" fill-opacity="0.82"/>
+    <path d="M184 225L184 260" stroke="#7EE7FF" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="184" cy="267" r="5" fill="#36D7B7"/>
+  </g>
+  <g>
+    <rect x="708" y="170" width="54" height="20" rx="6" fill="#0E1B31" stroke="rgba(255,255,255,0.12)"/>
+    <rect x="700" y="161" width="18" height="38" rx="5" fill="#36D7B7" fill-opacity="0.82"/>
+    <rect x="752" y="161" width="18" height="38" rx="5" fill="#36D7B7" fill-opacity="0.82"/>
+    <path d="M735 190L735 225" stroke="#7EE7FF" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="735" cy="232" r="5" fill="#67A6FF"/>
+  </g>
+  <g>
+    <circle cx="284" cy="307" r="8" fill="#36D7B7"/>
+    <circle cx="324" cy="283" r="7" fill="#67A6FF"/>
+    <circle cx="381" cy="260" r="8" fill="#67A6FF"/>
+    <circle cx="536" cy="264" r="9" fill="#8B5CF6"/>
+    <circle cx="606" cy="287" r="8" fill="#36D7B7"/>
+    <circle cx="647" cy="332" r="8" fill="#67A6FF"/>
+    <circle cx="631" cy="410" r="9" fill="#8B5CF6"/>
+    <circle cx="573" cy="453" r="8" fill="#36D7B7"/>
+    <circle cx="463" cy="474" r="10" fill="#67A6FF"/>
+    <circle cx="359" cy="454" r="9" fill="#8B5CF6"/>
+    <circle cx="300" cy="411" r="8" fill="#36D7B7"/>
+    <circle cx="278" cy="362" r="7" fill="#67A6FF"/>
+  </g>
+  <g opacity="0.9">
+    <path d="M184 267C222 278 247 291 284 307" stroke="#36D7B7" stroke-width="2" stroke-linecap="round"/>
+    <path d="M735 232C702 248 676 274 647 332" stroke="#67A6FF" stroke-width="2" stroke-linecap="round"/>
+    <path d="M324 283C361 270 398 262 462 258" stroke="#67A6FF" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M536 264C565 268 591 276 606 287" stroke="#8B5CF6" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M463 474C463 442 462 412 462 376" stroke="#7EE7FF" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+  <g>
+    <rect x="86" y="430" width="220" height="110" rx="22" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+    <text x="112" y="468" fill="#DCE8FF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Cobertura extendida</text>
+    <text x="112" y="496" fill="#8CA6C6" font-family="Inter, Arial, sans-serif" font-size="14">Satélite, LEO y acceso híbrido</text>
+    <text x="112" y="520" fill="#8CA6C6" font-family="Inter, Arial, sans-serif" font-size="14">como continuidad del servicio.</text>
+  </g>
+  <g>
+    <rect x="620" y="420" width="218" height="110" rx="22" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+    <text x="648" y="458" fill="#DCE8FF" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Integración 5G / 6G</text>
+    <text x="648" y="486" fill="#8CA6C6" font-family="Inter, Arial, sans-serif" font-size="14">Arquitectura, calidad y movilidad</text>
+    <text x="648" y="510" fill="#8CA6C6" font-family="Inter, Arial, sans-serif" font-size="14">aparecen como ejes del mapa.</text>
+  </g>
+</svg>
